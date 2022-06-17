@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1064628376737",
+    "project_id": "aubsdbapp",
+    "storage_bucket": "aubsdbapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1064628376737:android:b2b6d4eb9c9c4a5733cce0",
+        "android_client_info": {
+          "package_name": "com.aubrnd.sdbapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1064628376737-goaisc23iu4tf5sf0smrlno8d345ejkr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.aubrnd.sdbapp",
+            "certificate_hash": "a7ed8d1df6a8dc0a25a7ea2cf4f989bc8cc5a58a"
+          }
+        },
+        {
+          "client_id": "1064628376737-p4otdv121f8d07jd17b337jikl8pvama.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1jIHwMBP0PbmZQW0YjQXqw14ppGzWMY0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1064628376737-p4otdv121f8d07jd17b337jikl8pvama.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
