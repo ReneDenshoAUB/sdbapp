@@ -9,6 +9,24 @@ var appTheme = ThemeData(
       color: Color(0xff3d3d3d),
       fontSize: 36,
     ),
+    headline4: TextStyle(
+      fontFamily: 'Gilroy-Bold',
+      fontWeight: FontWeight.w500,
+      color: Color(0xff3d3d3d),
+      fontSize: 30,
+    ),
+    headline5: TextStyle(
+      fontFamily: 'Gilroy-Bold',
+      fontWeight: FontWeight.w500,
+      color: Color(0xff3d3d3d),
+      fontSize: 25,
+    ),
+    headline6: TextStyle(
+      fontFamily: 'Gilroy-Bold',
+      fontWeight: FontWeight.w500,
+      color: Color(0xff3d3d3d),
+      fontSize: 20,
+    ),
     subtitle1: TextStyle(
       fontFamily: 'Gilroy',
       color: Color(0xff868686),
