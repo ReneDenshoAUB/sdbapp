@@ -25,7 +25,7 @@ var appTheme = ThemeData(
       fontFamily: 'Gilroy-Bold',
       fontWeight: FontWeight.w500,
       color: Color(0xff3d3d3d),
-      fontSize: 20,
+      fontSize: 16,
     ),
     subtitle1: TextStyle(
       fontFamily: 'Gilroy',
@@ -38,6 +38,12 @@ var appTheme = ThemeData(
       fontWeight: FontWeight.w500,
       fontSize: 28,
       color: Colors.white,
+    ),
+    bodyText1: TextStyle(
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w400,
+      color: Color.fromRGBO(61, 61, 61, 1),
+      fontSize: 14,
     ),
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
