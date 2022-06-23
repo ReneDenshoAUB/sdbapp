@@ -293,12 +293,12 @@ class _LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
                   children: [
                     Text(
                       'Lessee 1',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headline5,
                     ),
                     const SizedBox(height: 5),
                     Text(
                       'Name',
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
                       'Rene Lee T. Aquitania',
@@ -331,12 +331,12 @@ class _LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
                   children: [
                     Text(
                       'Lessee 2',
-                      style: Theme.of(context).textTheme.headline6,
+                      style: Theme.of(context).textTheme.headline5,
                     ),
                     const SizedBox(height: 5),
                     Text(
                       'Name',
-                      style: Theme.of(context).textTheme.headline5,
+                      style: Theme.of(context).textTheme.headline6,
                     ),
                     Text(
                       'Rene Lee T. Aquitania',
