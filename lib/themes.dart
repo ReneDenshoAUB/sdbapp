@@ -45,6 +45,27 @@ var appTheme = ThemeData(
       color: Color.fromRGBO(61, 61, 61, 1),
       fontSize: 14,
     ),
+    bodyText2: TextStyle(
+      fontFamily: 'Gilroy',
+      fontWeight: FontWeight.w500,
+      color: Color.fromRGBO(61, 61, 61, 1),
+      fontSize: 12,
+    ),
+  ),
+  appBarTheme: AppBarTheme(
+    centerTitle: true,
+    iconTheme: IconThemeData(
+      color: Color(0xff3d3d3d),
+    ),
+    color: Colors.white,
+    elevation: 0,
+    titleTextStyle: TextStyle(
+      fontFamily: 'Gilroy-Bold',
+      fontWeight: FontWeight.w900,
+      color: Color(0xff3d3d3d),
+      fontSize: 22,
+    ),
+    toolbarHeight: 80,
   ),
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ButtonStyle(
@@ -57,6 +78,19 @@ var appTheme = ThemeData(
         const Color(0xffc93033),
       ),
     ),
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+    border: OutlineInputBorder(
+      borderSide: BorderSide(
+        width: 0,
+        style: BorderStyle.none,
+      ),
+      borderRadius: BorderRadius.circular(5.0),
+    ),
+
+    contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+    isDense: true,
+    fillColor: Color(0xffeae0d6),
   ),
 );
 
