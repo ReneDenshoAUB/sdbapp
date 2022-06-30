@@ -545,7 +545,7 @@ class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
             //Button
             Center(
               child: SizedBox(
-                width: MediaQuery.of(context).size.height * 0.15,
+                width: MediaQuery.of(context).size.width * 0.3,
                 height: MediaQuery.of(context).size.height * 0.05,
                 child: ElevatedButton(
                   child: Row(
