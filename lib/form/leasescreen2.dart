@@ -6,10 +6,10 @@ class LesseeDetailsScreen extends StatefulWidget {
   const LesseeDetailsScreen({Key? key}) : super(key: key);
 
   @override
-  State<LesseeDetailsScreen> createState() => _LesseeDetailsScreenState();
+  State<LesseeDetailsScreen> createState() => LesseeDetailsScreenState();
 }
 
-class _LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
+class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
   TextEditingController fNameController1 = TextEditingController();
   TextEditingController mNameController1 = TextEditingController();
   TextEditingController lNameController1 = TextEditingController();
@@ -156,6 +156,7 @@ class _LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('LESSEE DETAILS'),
       ),
