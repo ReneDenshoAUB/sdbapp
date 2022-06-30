@@ -33,19 +33,23 @@ class _LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
   bool signature2Value = false;
   bool checkboxValue = false;
 
-  String branch = 'AUB Better Living Branch';
+  String branch = LeaseDetailsScreenState.selectedBranch.value;
   String sdbnumber = '38';
-  String size = '5 X 10';
-  String annualfee = 'PHP 1,650.00';
+  String size = LeaseDetailsScreenState.selectedSize.value;
+  String annualfee = LeaseDetailsScreenState.selectedPrice;
   String depositfee = 'PHP 1,000.00';
-  String dateleased = 'June 17, 2022';
-  String expirydate = 'January 15, 2023';
-  String lessee1 = 'Rene Lee T. Aquitania';
-  String address1 = 'A-154 Poblacion La Trinidad, Benguet 2601';
-  String contact1 = '09234567890';
-  String lessee2 = 'Rene Lee T. Aquitania';
-  String address2 = 'A-154 Poblacion La Trinidad, Benguet 2601';
-  String contact2 = '+639771704267';
+  String dateleased = LeaseDetailsScreenState.dateleased;
+  String expirydate = LeaseDetailsScreenState.expirydate;
+  String lessee1 =
+      '${LesseeDetailsScreenState.fName1} ${LesseeDetailsScreenState.mName1} ${LesseeDetailsScreenState.lName1}';
+  String address1 =
+      '${LesseeDetailsScreenState.house1} ${LesseeDetailsScreenState.barangay1.value} ${LesseeDetailsScreenState.city1.value} ${LesseeDetailsScreenState.province1.value}';
+  String contact1 = LesseeDetailsScreenState.contact1;
+  String lessee2 =
+      '${LesseeDetailsScreenState.fName2} ${LesseeDetailsScreenState.mName2} ${LesseeDetailsScreenState.lName2}';
+  String address2 =
+      '${LesseeDetailsScreenState.house2} ${LesseeDetailsScreenState.barangay2.value} ${LesseeDetailsScreenState.city2.value} ${LesseeDetailsScreenState.province2.value}';
+  String contact2 = LesseeDetailsScreenState.contact2;
   String? sigurl1;
   String? sigurl2;
 
@@ -63,10 +67,12 @@ class _LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
       lessee1: lessee1,
       address1: address1,
       contact1: contact1,
-      lessee2: lessee2,
-      address2: address2,
-      contact2: contact2,
     );
+    if (hasLessee2 == true) {
+      lease.lessee2 = lessee2;
+      lease.address2 = address2;
+      lease.contact2 = contact2;
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text('Lessee Signature'),
@@ -238,7 +244,7 @@ class _LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
                   style: Theme.of(context).textTheme.headline5,
                 ),
               ),
-              if (deviceWidth > 400)
+              if (deviceWidth > 450)
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -247,7 +253,6 @@ class _LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(deviceWidth.toString()),
                           Text(
                             'Branch',
                             style: Theme.of(context).textTheme.headline6,

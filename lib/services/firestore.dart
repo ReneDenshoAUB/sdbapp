@@ -25,6 +25,6 @@ class FirestoreService {
       'sigurl2': lease.sigurl2 ?? '',
     };
 
-    return ref.set(data, SetOptions(merge: true));
+    return ref.set(data, SetOptions(merge: false));
   }
 }

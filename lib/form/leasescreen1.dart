@@ -8,14 +8,17 @@ class LeaseDetailsScreen extends StatefulWidget {
   const LeaseDetailsScreen({Key? key}) : super(key: key);
 
   @override
-  State<LeaseDetailsScreen> createState() => _LeaseDetailsScreenState();
+  State<LeaseDetailsScreen> createState() => LeaseDetailsScreenState();
 }
 
-class _LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
+class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
   //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   TextEditingController branchController = TextEditingController();
-  ValueNotifier<String> selectedSize = ValueNotifier<String>('');
-  ValueNotifier<String> selectedBranch = ValueNotifier<String>('');
+  static ValueNotifier<String> selectedSize = ValueNotifier<String>('');
+  static ValueNotifier<String> selectedBranch = ValueNotifier<String>('');
+  static String selectedPrice = '';
+  static String dateleased = '';
+  static String expirydate = '';
   List<String> sizes = ['5x5', '5x10', '10x10', '10x15', '15x15'];
   List<String> allBranches = [
     'Branch 1',
@@ -78,17 +81,21 @@ class _LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
     ];
 
     DateTime now = DateTime.now();
-    return "${months[now.month - 1]} ${now.day}, ${now.year}";
+    dateleased = "${months[now.month - 1]} ${now.day}, ${now.year}";
+    return dateleased;
   }
 
   String nextJanuary() {
     DateTime now = DateTime.now();
+    String nextJan = '';
 
     if (now.month == 1 && now.day < 15) {
-      return "January 15, ${now.year}";
+      nextJan = "January 15, ${now.year}";
     } else {
-      return "January 15, ${now.year + 1}";
+      nextJan = "January 15, ${now.year + 1}";
     }
+    expirydate = nextJan;
+    return nextJan;
   }
 
   String price(String? selectedSize) {
@@ -100,7 +107,7 @@ class _LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
     } else if (selectedSize == '10x10') {
       price = 'PHP 2200.00';
     }
-
+    selectedPrice = price;
     return price;
   }
 
@@ -212,7 +219,7 @@ class _LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: const [
-                          Text('Next '),
+                          Text('Next'),
                           Icon(Icons.arrow_circle_right)
                         ],
                       ),

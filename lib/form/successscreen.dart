@@ -19,6 +19,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
   UploadTask? firestoreTask;
   String url = '';
   int justonce = 0;
+  bool done = false;
 
   Future uploadFile(Uint8List? signature, int count) async {
     var user = AuthService().user!;
@@ -28,6 +29,7 @@ class _SuccessScreenState extends State<SuccessScreen> {
     final snapshot = await uploadTask!.whenComplete(() {});
     final urlDownload = await snapshot.ref.getDownloadURL();
     setState(() {
+      done = true;
       url = urlDownload;
     });
   }
@@ -52,36 +54,48 @@ class _SuccessScreenState extends State<SuccessScreen> {
     if (justonce == 0) uploadToFirebase();
 
     return Scaffold(
-      appBar: AppBar(),
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
+            const Icon(
               FontAwesomeIcons.solidPaperPlane,
               size: 120,
               color: Color(0xffc93033),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            Text(
-              'CURRENTLY UPLOADING',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            SizedBox(
+            if (done == false)
+              Text(
+                'CURRENTLY UPLOADING',
+                style: Theme.of(context).textTheme.headline4,
+              )
+            else
+              Text(
+                'DONE UPLOADING',
+                style: Theme.of(context).textTheme.headline4,
+              ),
+            const SizedBox(
               height: 50,
             ),
             buildProgress(),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
-            ElevatedButton(
-                child: const Text('Done'),
-                onPressed: () {
-                  Navigator.of(context)
-                      .pushNamedAndRemoveUntil('/', (route) => false);
-                }),
+            if (done == true)
+              SizedBox(
+                height: 50,
+                child: ElevatedButton(
+                    child: const Text('Back to Home'),
+                    onPressed: () {
+                      Navigator.of(context)
+                          .pushNamedAndRemoveUntil('/', (route) => false);
+                    }),
+              )
+            else
+              const SizedBox(height: 50),
           ],
         ),
       ),
@@ -100,8 +114,8 @@ class _SuccessScreenState extends State<SuccessScreen> {
               children: [
                 LinearProgressIndicator(
                   value: progress,
-                  backgroundColor: Color(0xffeae0d6),
-                  color: Color(0xffc93033),
+                  backgroundColor: const Color(0xffeae0d6),
+                  color: const Color(0xffc93033),
                 ),
                 Center(
                   child: Text(
