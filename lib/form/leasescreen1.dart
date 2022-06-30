@@ -13,10 +13,11 @@ class LeaseDetailsScreen extends StatefulWidget {
 
 class _LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
   //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  TextEditingController branchController = TextEditingController();
   ValueNotifier<String> selectedSize = ValueNotifier<String>('');
+  ValueNotifier<String> sizeError = ValueNotifier<String>('');
   ValueNotifier<String> selectedBranch = ValueNotifier<String>('');
-  List<String> sizes = ['5x5', '5x10', '10x10', '10x15', '15x15'];
+  ValueNotifier<String> branchError = ValueNotifier<String>('');
+  List<String> sizes = ['5x5', '5x10', '10x10'];
   List<String> allBranches = [
     'Branch 1',
     'Branch 13',
@@ -33,33 +34,6 @@ class _LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
     'Branch 5',
     'Branch 553'
   ];
-
-  @override
-  void initState() {
-    super.initState();
-    branchController.addListener(() {
-      /*
-      setState(() {
-        branchArray = allBranches.where((branch) {
-          final branchLower = branch.toLowerCase();
-          final searchLower = branchController.text.toLowerCase();
-
-          return branchLower.contains(searchLower);
-        }).toList();
-      });
-
-      print(branchArray);
-      selectedSize.value = branchController.text;
-      print(branchController.text);
-      */
-    });
-  }
-
-  @override
-  void dispose() {
-    branchController.dispose();
-    super.dispose();
-  }
 
   String formattedDateTime() {
     var months = [
@@ -120,45 +94,56 @@ class _LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
             child: Column(
               children: [
                 ValueListenableBuilder(
-                    valueListenable: selectedBranch,
-                    builder: (context, String branch, child) {
-                      return FormAndLabel(
-                        fieldAttributes: [
-                          FieldAttributes(
-                            labelText: 'Branch',
-                            formType: 'Dropdown',
-                            fieldText: branch,
-                            //controller: branchController,
-                            tappable: true,
-                            tapped: false,
-                            selected: selectedBranch,
-                            dropdownArray: allBranches,
-                          ),
-                        ],
-                      );
+                    valueListenable: branchError,
+                    builder: (context, String errorBranch, child) {
+                      return ValueListenableBuilder(
+                          valueListenable: selectedBranch,
+                          builder: (context, String branch, child) {
+                            return FormAndLabel(
+                              fieldAttributes: [
+                                FieldAttributes(
+                                  labelText: 'Branch',
+                                  fieldText: branch,
+                                  errorText: errorBranch,
+                                  formType: 'Dropdown',
+                                  //controller: branchController,
+                                  tappable: true,
+                                  tapped: false,
+                                  selected: selectedBranch,
+                                  dropdownArray: allBranches,
+                                ),
+                              ],
+                            );
+                          });
                     }),
                 ValueListenableBuilder(
-                    valueListenable: selectedSize,
-                    builder: (context, String size, child) {
-                      return FormAndLabel(
-                        fieldAttributes: [
-                          FieldAttributes(
-                            labelText: 'SDB Number',
-                            supplementalText: '(Automatically chosen for you)',
-                            formType: 'Disabled',
-                            tappable: false,
-                          ),
-                          FieldAttributes(
-                            labelText: 'Size',
-                            formType: 'Dropdown',
-                            fieldText: size,
-                            tappable: true,
-                            tapped: false,
-                            selected: selectedSize,
-                            dropdownArray: sizes,
-                          ),
-                        ],
-                      );
+                    valueListenable: sizeError,
+                    builder: (context, String errorSize, child) {
+                      return ValueListenableBuilder(
+                          valueListenable: selectedSize,
+                          builder: (context, String size, child) {
+                            return FormAndLabel(
+                              fieldAttributes: [
+                                FieldAttributes(
+                                  labelText: 'SDB Number',
+                                  supplementalText:
+                                      '(Automatically chosen for you)',
+                                  formType: 'Disabled',
+                                  tappable: false,
+                                ),
+                                FieldAttributes(
+                                  labelText: 'Size',
+                                  fieldText: size,
+                                  errorText: errorSize,
+                                  formType: 'Dropdown',
+                                  tappable: true,
+                                  tapped: false,
+                                  selected: selectedSize,
+                                  dropdownArray: sizes,
+                                ),
+                              ],
+                            );
+                          });
                     }),
                 ValueListenableBuilder(
                     valueListenable: selectedSize,
@@ -217,13 +202,25 @@ class _LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
                         ],
                       ),
                       onPressed: () {
-                        if (selectedSize.value == '') {
-
-                          return;
+                        bool hasError = false;
+                        if (selectedBranch.value == '') {
+                          branchError.value =
+                              'Please fill out this field properly';
+                          hasError = true;
+                        } else {
+                          branchError.value = '';
                         }
-                        print(
-                            '${selectedSize.value} and ${selectedBranch.value}');
-                        Navigator.pushNamed(context, '/leasescreen2');
+                        if (selectedSize.value == '') {
+                          sizeError.value =
+                              'Please fill out this field properly';
+                          hasError = true;
+                        } else {
+                          sizeError.value = '';
+                        }
+
+                        if(!hasError){
+                          Navigator.pushNamed(context, '/leasescreen2');
+                        }
                       },
                     ),
                   ),
