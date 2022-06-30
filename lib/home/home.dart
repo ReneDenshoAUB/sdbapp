@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sdbapp/services/auth.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -42,7 +43,7 @@ class HomeScreen extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  'and securewith our safety deposit boxes.',
+                  'and secure with our safety deposit boxes.',
                   style: Theme.of(context).textTheme.subtitle1,
                   textAlign: TextAlign.center,
                 ),
@@ -55,8 +56,10 @@ class HomeScreen extends StatelessWidget {
                 height: 55,
                 child: ElevatedButton(
                   style: Theme.of(context).elevatedButtonTheme.style,
-                  onPressed: () =>
-                      Navigator.pushNamed(context, '/leasescreen1'),
+                  onPressed: () {
+                    AuthService.anonLogin();
+                    Navigator.pushNamed(context, '/leasescreen1');
+                  },
                   child: Text(
                     'Get Started',
                     style: Theme.of(context).textTheme.button,

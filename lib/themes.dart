@@ -52,7 +52,7 @@ var appTheme = ThemeData(
       fontSize: 12,
     ),
   ),
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     centerTitle: true,
     iconTheme: IconThemeData(
       color: Color(0xff3d3d3d),
@@ -87,7 +87,6 @@ var appTheme = ThemeData(
       ),
       borderRadius: BorderRadius.circular(5.0),
     ),
-
     contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
     isDense: true,
     fillColor: Color(0xffeae0d6),
