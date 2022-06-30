@@ -202,10 +202,10 @@ class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
                     height: MediaQuery.of(context).size.height * 0.05,
                     child: ElevatedButton(
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
                           Text('Next'),
-                          Icon(Icons.arrow_circle_right)
+                          Icon(Icons.arrow_circle_right, size: MediaQuery.of(context).size.height * 0.02,)
                         ],
                       ),
                       onPressed: () {

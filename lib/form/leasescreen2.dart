@@ -549,10 +549,10 @@ class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
                 height: MediaQuery.of(context).size.height * 0.05,
                 child: ElevatedButton(
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text('Next '),
-                      Icon(Icons.arrow_circle_right)
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Text('Next'),
+                      Icon(Icons.arrow_circle_right, size: MediaQuery.of(context).size.height * 0.02,),
                     ],
                   ),
                   onPressed: () {
