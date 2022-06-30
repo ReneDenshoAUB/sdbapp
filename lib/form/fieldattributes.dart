@@ -4,6 +4,7 @@ class FieldAttributes {
   String? labelText;
   String? supplementalText;
   String? fieldText;
+  String? errorText;
   String formType;
   bool? tapped;
   bool tappable;
@@ -16,6 +17,7 @@ class FieldAttributes {
     this.labelText,
     this.supplementalText,
     this.fieldText,
+    this.errorText,
     required this.formType,
     this.tapped,
     required this.tappable,

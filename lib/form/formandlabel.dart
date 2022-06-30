@@ -89,6 +89,21 @@ class _FormAndLabelState extends State<FormAndLabel> {
                   ))
               .toList(),
         ),
+         //============ Error Text, if any  ==================
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: (widget.fieldAttributes)
+              .map((fAttr) => SizedBox(
+                width: formWidth,
+                child: (fAttr.errorText != '' && fAttr.errorText != null) ? Text(
+                  '${fAttr.errorText}', 
+                  style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                    fontSize: MediaQuery.of(context).size.height * 0.015,
+                    color: Color(0xffc93033),
+                  ),
+                ): SizedBox.shrink(),
+              )).toList(),
+        ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.003),
         //============      FormField       ==================
         Row(
@@ -105,7 +120,6 @@ class _FormAndLabelState extends State<FormAndLabel> {
                   }))
               .toList(),
         ),
-
         //============  Dropdown, if any   ==================
         (checkIfDropdown())
             ? SizedBox(
