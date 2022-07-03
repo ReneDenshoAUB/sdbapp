@@ -6,6 +6,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double deviceHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -15,54 +16,78 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/images/aubLogo.png',
-              width: 200,
+              width: deviceHeight * 0.2928,
               fit: BoxFit.fitWidth,
             ),
             Image.asset(
               'assets/images/depositIcon.png',
-              width: 190,
+              width: deviceHeight * 0.2782,
               fit: BoxFit.fitWidth,
             ),
             Column(
               children: [
-                const SizedBox(height: 10),
+                SizedBox(height: deviceHeight * 0.01464),
                 Text(
                   'Safety Deposit',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline3
+                      ?.copyWith(fontSize: deviceHeight * 0.05271),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'Box Application',
-                  style: Theme.of(context).textTheme.headline3,
+                  style: Theme.of(context)
+                      .textTheme
+                      .headline3
+                      ?.copyWith(fontSize: deviceHeight * 0.05271),
                   textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 5),
+                SizedBox(height: deviceHeight * 0.00732),
                 Text(
                   'Keep your valuables and documents safe',
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1
+                      ?.copyWith(fontSize: deviceHeight * 0.019),
                   textAlign: TextAlign.center,
                 ),
                 Text(
                   'and secure with our safety deposit boxes.',
-                  style: Theme.of(context).textTheme.subtitle1,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle1
+                      ?.copyWith(fontSize: deviceHeight * 0.019),
                   textAlign: TextAlign.center,
                 ),
               ],
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 0.0),
+              padding:
+                  EdgeInsets.fromLTRB(0.0, deviceHeight * 0.0732, 0.0, 0.0),
               child: SizedBox(
-                width: 230,
-                height: 55,
+                width: deviceHeight * 0.3367,
+                height: deviceHeight * 0.0862,
                 child: ElevatedButton(
-                  style: Theme.of(context).elevatedButtonTheme.style,
+                  style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                          RoundedRectangleBorder(
+                            borderRadius:
+                                BorderRadius.circular(deviceHeight * 0.0401),
+                          ),
+                        ),
+                      ),
                   onPressed: () {
                     AuthService.anonLogin();
                     Navigator.pushNamed(context, '/leasescreen1');
                   },
                   child: Text(
                     'Get Started',
-                    style: Theme.of(context).textTheme.button,
+                    style: Theme.of(context)
+                        .textTheme
+                        .button
+                        ?.copyWith(fontSize: deviceHeight * 0.0439),
                   ),
                 ),
               ),

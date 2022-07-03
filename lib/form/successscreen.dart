@@ -1,9 +1,8 @@
-import 'dart:io';
 import 'dart:typed_data';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:sdbapp/form/leasescreen3.dart';
+import 'package:sdbapp/form/leasescreen4.dart';
 import 'package:sdbapp/services/auth.dart';
 import 'package:sdbapp/services/firestore.dart';
 
@@ -41,12 +40,10 @@ class _SuccessScreenState extends State<SuccessScreen> {
     void uploadToFirebase() async {
       justonce = 1;
       await uploadFile(lease.signature1!, 1);
-      print(url);
       lease.sigurl1 = url;
       if (lease.signature2 != null) {
         await uploadFile(lease.signature2, 2);
         lease.sigurl2 = url;
-        print(url);
       }
       FirestoreService.sendToFirestore(lease);
     }
