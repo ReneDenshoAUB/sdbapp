@@ -14,6 +14,15 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
+            Align(
+              alignment: Alignment.topRight,
+              child: ElevatedButton(
+                child: Text('Sign in'),
+                onPressed: () {
+                  Navigator.pushNamed(context, '/login');
+                },
+              ),
+            ),
             Image.asset(
               'assets/images/aubLogo.png',
               width: deviceHeight * 0.2928,

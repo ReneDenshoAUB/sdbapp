@@ -25,6 +25,13 @@ class FirestoreService {
       'sigurl2': lease.sigurl2 ?? '',
     };
 
-    return ref.set(data, SetOptions(merge: false));
+    return ref.set(data, SetOptions(merge: true));
+  }
+
+  static Future<List<Map<String, dynamic>>> readUsers() async {
+    var ref = FirebaseFirestore.instance.collection('users');
+    var snapshot = await ref.get();
+    var data = snapshot.docs.map((e) => e.data());
+    return data.toList();
   }
 }

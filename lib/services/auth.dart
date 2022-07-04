@@ -12,3 +12,11 @@ class AuthService {
     }
   }
 }
+
+class User {
+  String username;
+  String password;
+  String type;
+
+  User(this.username, this.password, this.type);
+}

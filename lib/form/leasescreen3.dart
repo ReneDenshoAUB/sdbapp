@@ -304,31 +304,36 @@ class LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.007,
               ),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.3,
-                height: MediaQuery.of(context).size.height * 0.05,
-                child: ElevatedButton(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text("Next "),
-                      Icon(
-                        Icons.arrow_circle_right,
-                        size: deviceHeight * 0.02,
-                      ),
-                    ],
+              Center(
+                child: SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.3,
+                  height: MediaQuery.of(context).size.height * 0.05,
+                  child: ElevatedButton(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Next "),
+                        Icon(
+                          Icons.arrow_circle_right,
+                          size: deviceHeight * 0.02,
+                        ),
+                      ],
+                    ),
+                    onPressed: () {
+                      if (signature1Value == false) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Lessee 1 needs to sign')));
+                      } else if (hasLessee2 == true &&
+                          signature2Value == false) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Lessee 2 needs to sign')));
+                      } else {
+                        Navigator.pushNamed(context, '/leasescreen4');
+                      }
+                    },
                   ),
-                  onPressed: () {
-                    if (signature1Value == false) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text('Lessee 1 needs to sign')));
-                    } else if (hasLessee2 == true && signature2Value == false) {
-                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                          content: Text('Lessee 2 needs to sign')));
-                    } else {
-                      Navigator.pushNamed(context, '/leasescreen4');
-                    }
-                  },
                 ),
               ),
             ],
