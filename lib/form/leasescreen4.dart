@@ -60,7 +60,7 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
     }
     return Scaffold(
       appBar: AppBar(
-          title: Text('Lease Review',
+          title: Text('LEASE REVIEW',
               style: TextStyle(fontSize: deviceHeight * 0.03134))),
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
@@ -210,72 +210,15 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                     ?.copyWith(fontSize: deviceHeight * 0.0366),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  Text(
-                    'Lessee 1',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline5
-                        ?.copyWith(fontSize: deviceHeight * 0.0366),
-                  ),
-                  SizedBox(height: deviceHeight * 0.00732),
-                  Text(
-                    'Name',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        ?.copyWith(fontSize: deviceHeight * 0.02342),
-                  ),
-                  Text(
-                    lessee1,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        ?.copyWith(fontSize: deviceHeight * 0.02049),
-                  ),
-                  SizedBox(height: deviceHeight * 0.00732),
-                  Text(
-                    'Address',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        ?.copyWith(fontSize: deviceHeight * 0.02342),
-                  ),
-                  Text(
-                    address1,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        ?.copyWith(fontSize: deviceHeight * 0.02049),
-                  ),
-                  SizedBox(height: deviceHeight * 0.00732),
-                  Text(
-                    'Contact Number',
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline6
-                        ?.copyWith(fontSize: deviceHeight * 0.02342),
-                  ),
-                  Text(
-                    contact1,
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText1
-                        ?.copyWith(fontSize: deviceHeight * 0.02049),
-                  ),
-                ],
-              ),
-            ),
-            if (hasLessee2 == true)
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 30.0),
+            SizedBox(
+              width: deviceWidth * 0.8,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Lessee 2',
+                      'Lessee 1',
                       style: Theme.of(context)
                           .textTheme
                           .headline5
@@ -290,7 +233,7 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                           ?.copyWith(fontSize: deviceHeight * 0.02342),
                     ),
                     Text(
-                      lessee2,
+                      lessee1,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
@@ -305,7 +248,7 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                           ?.copyWith(fontSize: deviceHeight * 0.02342),
                     ),
                     Text(
-                      address2,
+                      address1,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
@@ -320,13 +263,78 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                           ?.copyWith(fontSize: deviceHeight * 0.02342),
                     ),
                     Text(
-                      contact2,
+                      contact1,
                       style: Theme.of(context)
                           .textTheme
                           .bodyText1
                           ?.copyWith(fontSize: deviceHeight * 0.02049),
                     ),
                   ],
+                ),
+              ),
+            ),
+            if (hasLessee2 == true)
+              SizedBox(
+                width: deviceWidth * 0.8,
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(8.0, 8.0, 8.0, 30.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Lessee 2',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline5
+                            ?.copyWith(fontSize: deviceHeight * 0.0366),
+                      ),
+                      SizedBox(height: deviceHeight * 0.00732),
+                      Text(
+                        'Name',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6
+                            ?.copyWith(fontSize: deviceHeight * 0.02342),
+                      ),
+                      Text(
+                        lessee2,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            ?.copyWith(fontSize: deviceHeight * 0.02049),
+                      ),
+                      SizedBox(height: deviceHeight * 0.00732),
+                      Text(
+                        'Address',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6
+                            ?.copyWith(fontSize: deviceHeight * 0.02342),
+                      ),
+                      Text(
+                        address2,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            ?.copyWith(fontSize: deviceHeight * 0.02049),
+                      ),
+                      SizedBox(height: deviceHeight * 0.00732),
+                      Text(
+                        'Contact Number',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6
+                            ?.copyWith(fontSize: deviceHeight * 0.02342),
+                      ),
+                      Text(
+                        contact2,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            ?.copyWith(fontSize: deviceHeight * 0.02049),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             Row(
@@ -344,7 +352,7 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                 ),
                 Text('By continuing, you agree to our ',
                     style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                        fontSize: MediaQuery.of(context).size.height * 0.02)),
+                        fontSize: MediaQuery.of(context).size.height * 0.015)),
                 TextButton(
                   style: TextButton.styleFrom(
                     padding: EdgeInsets.zero,
@@ -466,7 +474,7 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                     style: TextStyle(
                         color: const Color(0xffc93033),
                         fontFamily: 'Gilroy',
-                        fontSize: deviceHeight * 0.02),
+                        fontSize: deviceHeight * 0.015),
                   ),
                 ),
               ],
@@ -487,11 +495,11 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                   children: [
                     Text(
                       "Submit ",
-                      style: TextStyle(fontSize: deviceHeight * 0.03513),
+                      style: TextStyle(fontSize: deviceHeight * 0.03),
                     ),
                     Icon(
                       FontAwesomeIcons.solidPaperPlane,
-                      size: deviceHeight * 0.02928,
+                      size: deviceHeight * 0.022,
                     ),
                   ],
                 ),

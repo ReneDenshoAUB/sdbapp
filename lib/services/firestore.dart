@@ -4,8 +4,12 @@ import 'package:sdbapp/services/auth.dart';
 
 class FirestoreService {
   static Future<void> sendToFirestore(Lease lease) async {
-    var user = AuthService().user!;
-    var ref = FirebaseFirestore.instance.collection('leases').doc(user.uid);
+    var now = DateTime.now();
+    var datetimenow =
+        "${now.month}-${now.day}-${now.year} ${now.hour}:${now.minute}:${now.second}";
+    var ref = FirebaseFirestore.instance
+        .collection('leases')
+        .doc("${lease.lessee1} $datetimenow");
 
     var data = {
       'branch': lease.branch,
@@ -23,13 +27,16 @@ class FirestoreService {
       'contact2': lease.contact2,
       'sigurl1': lease.sigurl1,
       'sigurl2': lease.sigurl2 ?? '',
+      'datetime': datetimenow,
+      'status': 'submitted',
     };
 
     return ref.set(data, SetOptions(merge: true));
   }
 
-  static Future<List<Map<String, dynamic>>> readUsers() async {
-    var ref = FirebaseFirestore.instance.collection('users');
+  static Future<List<Map<String, dynamic>>> readFirestore(
+      String collection) async {
+    var ref = FirebaseFirestore.instance.collection(collection);
     var snapshot = await ref.get();
     var data = snapshot.docs.map((e) => e.data());
     return data.toList();

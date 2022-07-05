@@ -315,7 +315,7 @@ class LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
                         const Text("Next "),
                         Icon(
                           Icons.arrow_circle_right,
-                          size: deviceHeight * 0.02,
+                          size: deviceHeight * 0.015,
                         ),
                       ],
                     ),

@@ -3,7 +3,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:sdbapp/form/leasescreen4.dart';
-import 'package:sdbapp/services/auth.dart';
 import 'package:sdbapp/services/firestore.dart';
 
 class SuccessScreen extends StatefulWidget {
@@ -20,9 +19,9 @@ class _SuccessScreenState extends State<SuccessScreen> {
   int justonce = 0;
   bool done = false;
 
-  Future uploadFile(Uint8List? signature, int count) async {
-    var user = AuthService().user!;
-    final path = 'signatures/${user.uid}_$count';
+  Future uploadFile(Uint8List? signature, String lessee, String datetimenow,
+      int count) async {
+    final path = 'signatures/$lessee $datetimenow ($count)';
     final ref = FirebaseStorage.instance.ref().child(path);
     uploadTask = ref.putData(signature!);
     final snapshot = await uploadTask!.whenComplete(() {});
@@ -39,10 +38,13 @@ class _SuccessScreenState extends State<SuccessScreen> {
 
     void uploadToFirebase() async {
       justonce = 1;
-      await uploadFile(lease.signature1!, 1);
+      var now = DateTime.now();
+      final datetimenow =
+          "${now.month}-${now.day}-${now.year} ${now.hour}:${now.minute}:${now.second}";
+      await uploadFile(lease.signature1!, lease.lessee1, datetimenow, 1);
       lease.sigurl1 = url;
       if (lease.signature2 != null) {
-        await uploadFile(lease.signature2, 2);
+        await uploadFile(lease.signature2, lease.lessee2, datetimenow, 2);
         lease.sigurl2 = url;
       }
       FirestoreService.sendToFirestore(lease);
