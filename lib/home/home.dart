@@ -15,45 +15,31 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             Image.asset(
               'assets/images/aubLogo.png',
-              width: 200,
+              width: MediaQuery.of(context).size.width * 0.3,
               fit: BoxFit.fitWidth,
             ),
             Image.asset(
               'assets/images/depositIcon.png',
-              width: 190,
+              width: MediaQuery.of(context).size.width * 0.3,
               fit: BoxFit.fitWidth,
             ),
-            Column(
-              children: [
-                const SizedBox(height: 10),
-                Text(
-                  'Safety Deposit',
-                  style: Theme.of(context).textTheme.headline3,
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  'Box Application',
-                  style: Theme.of(context).textTheme.headline3,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  'Keep your valuables and documents safe',
-                  style: Theme.of(context).textTheme.subtitle1,
-                  textAlign: TextAlign.center,
-                ),
-                Text(
-                  'and secure with our safety deposit boxes.',
-                  style: Theme.of(context).textTheme.subtitle1,
-                  textAlign: TextAlign.center,
-                ),
-              ],
+            const SizedBox(height: 10),
+            Text(
+              'Safety Deposit\nBox Application',
+              style: Theme.of(context).textTheme.headline3?.copyWith(fontSize: MediaQuery.of(context).size.height * 0.05),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: 50),
+            Text(
+              'Keep your valuables and documents safe\nand secure with our safety deposit boxes.',
+              style: Theme.of(context).textTheme.subtitle1?.copyWith(fontSize: MediaQuery.of(context).size.height * 0.02),
+              textAlign: TextAlign.center,
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(0.0, 50.0, 0.0, 0.0),
+              padding: const EdgeInsets.fromLTRB(0.0, 20.0, 0.0, 0.0),
               child: SizedBox(
-                width: 230,
-                height: 55,
+                width: MediaQuery.of(context).size.width * 0.3,
+                height: MediaQuery.of(context).size.height * 0.05,
                 child: ElevatedButton(
                   style: Theme.of(context).elevatedButtonTheme.style,
                   onPressed: () {

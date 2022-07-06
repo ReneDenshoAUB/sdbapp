@@ -1,0 +1,876 @@
+{
+  "branches": [
+    {
+      "Branch Code": "001",
+      "Branch Name": "HEADQUARTERS JOY-NOSTALG CENTER"
+    },
+    {
+      "Branch Code": "002",
+      "Branch Name": "GIL PUYAT"
+    },
+    {
+      "Branch Code": "003",
+      "Branch Name": "ANNAPOLIS"
+    },
+    {
+      "Branch Code": "004",
+      "Branch Name": "BINONDO"
+    },
+    {
+      "Branch Code": "005",
+      "Branch Name": "NOVALICHES"
+    },
+    {
+      "Branch Code": "007",
+      "Branch Name": "KALOOKAN - 7TH AVE"
+    },
+    {
+      "Branch Code": "008",
+      "Branch Name": "DEL MONTE"
+    },
+    {
+      "Branch Code": "009",
+      "Branch Name": "VALENZUELA"
+    },
+    {
+      "Branch Code": "010",
+      "Branch Name": "ERMITA"
+    },
+    {
+      "Branch Code": "012",
+      "Branch Name": "ARRANQUE"
+    },
+    {
+      "Branch Code": "013",
+      "Branch Name": "DIVISORIA"
+    },
+    {
+      "Branch Code": "014",
+      "Branch Name": "CONGRESSIONAL"
+    },
+    {
+      "Branch Code": "015",
+      "Branch Name": "PASIG CANIOGAN"
+    },
+    {
+      "Branch Code": "016",
+      "Branch Name": "AYALA ALABANG"
+    },
+    {
+      "Branch Code": "017",
+      "Branch Name": "RUFINO"
+    },
+    {
+      "Branch Code": "018",
+      "Branch Name": "EDSA - CALOOCAN"
+    },
+    {
+      "Branch Code": "019",
+      "Branch Name": "MALABON"
+    },
+    {
+      "Branch Code": "020",
+      "Branch Name": "BGC - TAGUIG"
+    },
+    {
+      "Branch Code": "021",
+      "Branch Name": "LAS PINAS"
+    },
+    {
+      "Branch Code": "023",
+      "Branch Name": "SAMSON ROAD - CALOOCAN"
+    },
+    {
+      "Branch Code": "024",
+      "Branch Name": "MALINTA"
+    },
+    {
+      "Branch Code": "025",
+      "Branch Name": "ANTIPOLO"
+    },
+    {
+      "Branch Code": "026",
+      "Branch Name": "NAVOTAS"
+    },
+    {
+      "Branch Code": "027",
+      "Branch Name": "BGC PICADILLY"
+    },
+    {
+      "Branch Code": "028",
+      "Branch Name": "ORTIGAS AVE., GREENHILLS"
+    },
+    {
+      "Branch Code": "029",
+      "Branch Name": "BF HOMES PARANAQUE"
+    },
+    {
+      "Branch Code": "030",
+      "Branch Name": "SALCEDO"
+    },
+    {
+      "Branch Code": "031",
+      "Branch Name": "999 MALL"
+    },
+    {
+      "Branch Code": "032",
+      "Branch Name": "MAYHALIGUE"
+    },
+    {
+      "Branch Code": "033",
+      "Branch Name": "MASANGKAY"
+    },
+    {
+      "Branch Code": "034",
+      "Branch Name": "TIMOG"
+    },
+    {
+      "Branch Code": "036",
+      "Branch Name": "U.N. AVENUE"
+    },
+    {
+      "Branch Code": "037",
+      "Branch Name": "QUEZON AVENUE"
+    },
+    {
+      "Branch Code": "038",
+      "Branch Name": "PASO DE BLAS"
+    },
+    {
+      "Branch Code": "039",
+      "Branch Name": "INTRAMUROS"
+    },
+    {
+      "Branch Code": "041",
+      "Branch Name": "ELCANO"
+    },
+    {
+      "Branch Code": "042",
+      "Branch Name": "BANAWE"
+    },
+    {
+      "Branch Code": "043",
+      "Branch Name": "QUEZON AVE. SOUTH TRIANGLE"
+    },
+    {
+      "Branch Code": "044",
+      "Branch Name": "AYALA AVENUE"
+    },
+    {
+      "Branch Code": "046",
+      "Branch Name": "PLAZA LORENZO RUIZ"
+    },
+    {
+      "Branch Code": "047",
+      "Branch Name": "KALOOKAN - 6TH AVE"
+    },
+    {
+      "Branch Code": "048",
+      "Branch Name": "CAMARIN"
+    },
+    {
+      "Branch Code": "049",
+      "Branch Name": "CUBAO"
+    },
+    {
+      "Branch Code": "051",
+      "Branch Name": "UN ALHAMBRA"
+    },
+    {
+      "Branch Code": "052",
+      "Branch Name": "HERRERA"
+    },
+    {
+      "Branch Code": "053",
+      "Branch Name": "J. ABAD SANTOS"
+    },
+    {
+      "Branch Code": "056",
+      "Branch Name": "N. DOMINGO"
+    },
+    {
+      "Branch Code": "057",
+      "Branch Name": "NEW MANILA"
+    },
+    {
+      "Branch Code": "059",
+      "Branch Name": "ORTIGAS - EMERALD"
+    },
+    {
+      "Branch Code": "062",
+      "Branch Name": "SAN JUAN"
+    },
+    {
+      "Branch Code": "063",
+      "Branch Name": "TUTUBAN CENTER MALL"
+    },
+    {
+      "Branch Code": "065",
+      "Branch Name": "BACLARAN"
+    },
+    {
+      "Branch Code": "066",
+      "Branch Name": "FAIRVIEW"
+    },
+    {
+      "Branch Code": "067",
+      "Branch Name": "PIONEER"
+    },
+    {
+      "Branch Code": "068",
+      "Branch Name": "MALANDAY"
+    },
+    {
+      "Branch Code": "069",
+      "Branch Name": "ST. IGNATIUS"
+    },
+    {
+      "Branch Code": "071",
+      "Branch Name": "PASEO DE ROXAS"
+    },
+    {
+      "Branch Code": "072",
+      "Branch Name": "BANGKAL MAKATI"
+    },
+    {
+      "Branch Code": "073",
+      "Branch Name": "BETTER LIVING PARANAQUE"
+    },
+    {
+      "Branch Code": "074",
+      "Branch Name": "GREENFIELD DISTRICT MANDALUYONG"
+    },
+    {
+      "Branch Code": "075",
+      "Branch Name": "WACK WACK"
+    },
+    {
+      "Branch Code": "076",
+      "Branch Name": "WEST AVENUE"
+    },
+    {
+      "Branch Code": "077",
+      "Branch Name": "CHINO ROCES"
+    },
+    {
+      "Branch Code": "078",
+      "Branch Name": "MAKATI AVE"
+    },
+    {
+      "Branch Code": "079",
+      "Branch Name": "CONCEPCION MARIKINA"
+    },
+    {
+      "Branch Code": "080",
+      "Branch Name": "TIMOG - YBARDOLAZA"
+    },
+    {
+      "Branch Code": "081",
+      "Branch Name": "RAON-QUIAPO"
+    },
+    {
+      "Branch Code": "082",
+      "Branch Name": "TEKTITE"
+    },
+    {
+      "Branch Code": "083",
+      "Branch Name": "NUVO LIBIS"
+    },
+    {
+      "Branch Code": "084",
+      "Branch Name": "STA. CRUZ - MANILA"
+    },
+    {
+      "Branch Code": "085",
+      "Branch Name": "XAVIER SAN JUAN"
+    },
+    {
+      "Branch Code": "086",
+      "Branch Name": "SOLIS - TONDO"
+    },
+    {
+      "Branch Code": "087",
+      "Branch Name": "COMMONWEALTH - DON ANTONIO"
+    },
+    {
+      "Branch Code": "088",
+      "Branch Name": "PARC ROYALE"
+    },
+    {
+      "Branch Code": "089",
+      "Branch Name": "PASONG TAMO EXTENSION"
+    },
+    {
+      "Branch Code": "091",
+      "Branch Name": "TORDESILLAS"
+    },
+    {
+      "Branch Code": "092",
+      "Branch Name": "SOUTH SUPER HIGHWAY"
+    },
+    {
+      "Branch Code": "093",
+      "Branch Name": "SHAW JRU"
+    },
+    {
+      "Branch Code": "095",
+      "Branch Name": "KAMIAS - ANONAS"
+    },
+    {
+      "Branch Code": "096",
+      "Branch Name": "ROOSEVELT-FRISCO"
+    },
+    {
+      "Branch Code": "097",
+      "Branch Name": "PASONG TAMO - PONTE"
+    },
+    {
+      "Branch Code": "098",
+      "Branch Name": "ROXAS BLVD - VITO CRUZ"
+    },
+    {
+      "Branch Code": "099",
+      "Branch Name": "MAYON"
+    },
+    {
+      "Branch Code": "101",
+      "Branch Name": "BINAN"
+    },
+    {
+      "Branch Code": "102",
+      "Branch Name": "IMUS"
+    },
+    {
+      "Branch Code": "103",
+      "Branch Name": "LUCENA"
+    },
+    {
+      "Branch Code": "104",
+      "Branch Name": "ANGELES"
+    },
+    {
+      "Branch Code": "105",
+      "Branch Name": "NAGA"
+    },
+    {
+      "Branch Code": "106",
+      "Branch Name": "SAN FERNANDO PAMPANGA"
+    },
+    {
+      "Branch Code": "107",
+      "Branch Name": "STA. ROSA"
+    },
+    {
+      "Branch Code": "108",
+      "Branch Name": "LEGAZPI"
+    },
+    {
+      "Branch Code": "109",
+      "Branch Name": "CALAMBA"
+    },
+    {
+      "Branch Code": "110",
+      "Branch Name": "CAVITE PEZA"
+    },
+    {
+      "Branch Code": "111",
+      "Branch Name": "LIPA"
+    },
+    {
+      "Branch Code": "112",
+      "Branch Name": "DAGUPAN"
+    },
+    {
+      "Branch Code": "113",
+      "Branch Name": "TARLAC"
+    },
+    {
+      "Branch Code": "115",
+      "Branch Name": "MEYCAUAYAN"
+    },
+    {
+      "Branch Code": "116",
+      "Branch Name": "STA. MARIA"
+    },
+    {
+      "Branch Code": "117",
+      "Branch Name": "DASMARINAS CAVITE"
+    },
+    {
+      "Branch Code": "118",
+      "Branch Name": "SAN FERNANDO LA UNION"
+    },
+    {
+      "Branch Code": "120",
+      "Branch Name": "BACOOR"
+    },
+    {
+      "Branch Code": "121",
+      "Branch Name": "MASINAG"
+    },
+    {
+      "Branch Code": "122",
+      "Branch Name": "MEYCAUAYAN II"
+    },
+    {
+      "Branch Code": "124",
+      "Branch Name": "SANTIAGO ISABELA"
+    },
+    {
+      "Branch Code": "126",
+      "Branch Name": "BALIUAG"
+    },
+    {
+      "Branch Code": "127",
+      "Branch Name": "LAOAG"
+    },
+    {
+      "Branch Code": "128",
+      "Branch Name": "BOCAUE BULACAN"
+    },
+    {
+      "Branch Code": "129",
+      "Branch Name": "BALIBAGO, ANGELES"
+    },
+    {
+      "Branch Code": "130",
+      "Branch Name": "MALOLOS"
+    },
+    {
+      "Branch Code": "131",
+      "Branch Name": "CANDON"
+    },
+    {
+      "Branch Code": "132",
+      "Branch Name": "VIGAN"
+    },
+    {
+      "Branch Code": "133",
+      "Branch Name": "TUGUEGARAO"
+    },
+    {
+      "Branch Code": "135",
+      "Branch Name": "CABANATUAN"
+    },
+    {
+      "Branch Code": "136",
+      "Branch Name": "PUERTO PRINCESA"
+    },
+    {
+      "Branch Code": "137",
+      "Branch Name": "LEMERY"
+    },
+    {
+      "Branch Code": "138",
+      "Branch Name": "CAUAYAN"
+    },
+    {
+      "Branch Code": "139",
+      "Branch Name": "STA CRUZ - LAGUNA"
+    },
+    {
+      "Branch Code": "140",
+      "Branch Name": "NAGA CENTRO"
+    },
+    {
+      "Branch Code": "141",
+      "Branch Name": "GAPAN"
+    },
+    {
+      "Branch Code": "144",
+      "Branch Name": "SAN PABLO LAGUNA"
+    },
+    {
+      "Branch Code": "145",
+      "Branch Name": "TRECE MARTIREZ"
+    },
+    {
+      "Branch Code": "146",
+      "Branch Name": "CLARKFIELD"
+    },
+    {
+      "Branch Code": "147",
+      "Branch Name": "SAN JOSE DEL MONTE"
+    },
+    {
+      "Branch Code": "148",
+      "Branch Name": "MARILAO"
+    },
+    {
+      "Branch Code": "149",
+      "Branch Name": "URDANETA"
+    },
+    {
+      "Branch Code": "151",
+      "Branch Name": "GUIGUINTO"
+    },
+    {
+      "Branch Code": "152",
+      "Branch Name": "TAGAYTAY"
+    },
+    {
+      "Branch Code": "155",
+      "Branch Name": "PLARIDEL BULACAN"
+    },
+    {
+      "Branch Code": "156",
+      "Branch Name": "SAN MIGUEL BULACAN"
+    },
+    {
+      "Branch Code": "157",
+      "Branch Name": "SUBIC"
+    },
+    {
+      "Branch Code": "158",
+      "Branch Name": "BUSTOS BULACAN"
+    },
+    {
+      "Branch Code": "159",
+      "Branch Name": "TELABASTAGAN"
+    },
+    {
+      "Branch Code": "160",
+      "Branch Name": "CLARK GLOBAL CITY"
+    },
+    {
+      "Branch Code": "161",
+      "Branch Name": "MARKET ROAD - TAYTAY"
+    },
+    {
+      "Branch Code": "201",
+      "Branch Name": "CEBU IT PARK"
+    },
+    {
+      "Branch Code": "202",
+      "Branch Name": "CEBU MANDAUE"
+    },
+    {
+      "Branch Code": "203",
+      "Branch Name": "ILOILO"
+    },
+    {
+      "Branch Code": "204",
+      "Branch Name": "BACOLOD"
+    },
+    {
+      "Branch Code": "205",
+      "Branch Name": "CEBU MANGO"
+    },
+    {
+      "Branch Code": "207",
+      "Branch Name": "CEBU AS FORTUNA"
+    },
+    {
+      "Branch Code": "208",
+      "Branch Name": "CEBU AYALA BUSINESS PARK"
+    },
+    {
+      "Branch Code": "210",
+      "Branch Name": "CEBU SALINAS"
+    },
+    {
+      "Branch Code": "211",
+      "Branch Name": "TACLOBAN"
+    },
+    {
+      "Branch Code": "212",
+      "Branch Name": "TAGBILARAN"
+    },
+    {
+      "Branch Code": "213",
+      "Branch Name": "ROXAS"
+    },
+    {
+      "Branch Code": "214",
+      "Branch Name": "DUMAGUETE"
+    },
+    {
+      "Branch Code": "215",
+      "Branch Name": "CATBALOGAN"
+    },
+    {
+      "Branch Code": "216",
+      "Branch Name": "ANTIQUE"
+    },
+    {
+      "Branch Code": "217",
+      "Branch Name": "CATARMAN"
+    },
+    {
+      "Branch Code": "218",
+      "Branch Name": "CALBAYOG"
+    },
+    {
+      "Branch Code": "220",
+      "Branch Name": "ORMOC"
+    },
+    {
+      "Branch Code": "221",
+      "Branch Name": "KALIBO"
+    },
+    {
+      "Branch Code": "222",
+      "Branch Name": "ILOILO DONATO PISON"
+    },
+    {
+      "Branch Code": "223",
+      "Branch Name": "BACOLOD - BURGOS"
+    },
+    {
+      "Branch Code": "226",
+      "Branch Name": "MARASBARAS TACLOBAN"
+    },
+    {
+      "Branch Code": "301",
+      "Branch Name": "DAVAO J.P. LAUREL"
+    },
+    {
+      "Branch Code": "302",
+      "Branch Name": "CAGAYAN DE ORO"
+    },
+    {
+      "Branch Code": "303",
+      "Branch Name": "DAVAO MONTEVERDE"
+    },
+    {
+      "Branch Code": "304",
+      "Branch Name": "GENSAN SANTIAGO"
+    },
+    {
+      "Branch Code": "305",
+      "Branch Name": "ZAMBOANGA JALDON"
+    },
+    {
+      "Branch Code": "306",
+      "Branch Name": "GENERAL SANTOS NATIONAL HIGHWAY"
+    },
+    {
+      "Branch Code": "307",
+      "Branch Name": "TAGUM"
+    },
+    {
+      "Branch Code": "308",
+      "Branch Name": "MALAYBALAY"
+    },
+    {
+      "Branch Code": "309",
+      "Branch Name": "DAVAO BUHANGIN"
+    },
+    {
+      "Branch Code": "310",
+      "Branch Name": "PAGADIAN"
+    },
+    {
+      "Branch Code": "311",
+      "Branch Name": "OZAMIS"
+    },
+    {
+      "Branch Code": "312",
+      "Branch Name": "KORONADAL"
+    },
+    {
+      "Branch Code": "313",
+      "Branch Name": "BUTUAN"
+    },
+    {
+      "Branch Code": "314",
+      "Branch Name": "DAVAO MATINA"
+    },
+    {
+      "Branch Code": "315",
+      "Branch Name": "DIPOLOG"
+    },
+    {
+      "Branch Code": "316",
+      "Branch Name": "VALENCIA - BUKIDNON"
+    },
+    {
+      "Branch Code": "317",
+      "Branch Name": "ILIGAN"
+    },
+    {
+      "Branch Code": "318",
+      "Branch Name": "DAVAO TORIL"
+    },
+    {
+      "Branch Code": "319",
+      "Branch Name": "DAVAO DAMOSA"
+    },
+    {
+      "Branch Code": "320",
+      "Branch Name": "CAGAYAN DE ORO - CARMEN"
+    },
+    {
+      "Branch Code": "321",
+      "Branch Name": "ZAMBOANGA - VETERANS"
+    },
+    {
+      "Branch Code": "322",
+      "Branch Name": "CAGAYAN DE ORO - VELEZ"
+    },
+    {
+      "Branch Code": "324",
+      "Branch Name": "DAVAO DIGOS"
+    },
+    {
+      "Branch Code": "325",
+      "Branch Name": "KIDAPAWAN"
+    },
+    {
+      "Branch Code": "326",
+      "Branch Name": "DAVAO AGDAO"
+    },
+    {
+      "Branch Code": "327",
+      "Branch Name": "SURIGAO"
+    },
+    {
+      "Branch Code": "328",
+      "Branch Name": "DAVAO V. MAPA"
+    },
+    {
+      "Branch Code": "329",
+      "Branch Name": "COTABATO"
+    },
+    {
+      "Branch Code": "330",
+      "Branch Name": "SAN FRANCISCO"
+    },
+    {
+      "Branch Code": "404",
+      "Branch Name": "G. ARANETA PALANZA"
+    },
+    {
+      "Branch Code": "405",
+      "Branch Name": "LAGRO"
+    },
+    {
+      "Branch Code": "407",
+      "Branch Name": "PADRE RADA"
+    },
+    {
+      "Branch Code": "408",
+      "Branch Name": "168 MALL"
+    },
+    {
+      "Branch Code": "410",
+      "Branch Name": "6780 AYALA"
+    },
+    {
+      "Branch Code": "513",
+      "Branch Name": "ECHAGUE"
+    },
+    {
+      "Branch Code": "517",
+      "Branch Name": "VISAYAS AVENUE"
+    },
+    {
+      "Branch Code": "518",
+      "Branch Name": "CIVIC DRIVE ALABANG"
+    },
+    {
+      "Branch Code": "519",
+      "Branch Name": "BLUMENTRITT"
+    },
+    {
+      "Branch Code": "521",
+      "Branch Name": "NEW DIVISORIA MALL"
+    },
+    {
+      "Branch Code": "522",
+      "Branch Name": "ZABARTE"
+    },
+    {
+      "Branch Code": "523",
+      "Branch Name": "BGC-39TH ST."
+    },
+    {
+      "Branch Code": "524",
+      "Branch Name": "NOVALICHES GEN LUIS"
+    },
+    {
+      "Branch Code": "525",
+      "Branch Name": "PASAY - BUENDIA"
+    },
+    {
+      "Branch Code": "527",
+      "Branch Name": "QUIRINO AVE. - PARANAQUE"
+    },
+    {
+      "Branch Code": "528",
+      "Branch Name": "NAVOTAS M. NAVAL"
+    },
+    {
+      "Branch Code": "529",
+      "Branch Name": "DALANDANAN"
+    },
+    {
+      "Branch Code": "530",
+      "Branch Name": "GILMORE"
+    },
+    {
+      "Branch Code": "531",
+      "Branch Name": "OKADA"
+    },
+    {
+      "Branch Code": "532",
+      "Branch Name": "PUTATAN MUNTINLUPA"
+    },
+    {
+      "Branch Code": "533",
+      "Branch Name": "BGC-PSE"
+    },
+    {
+      "Branch Code": "534",
+      "Branch Name": "EASTFIELD MACAPAGAL"
+    },
+    {
+      "Branch Code": "535",
+      "Branch Name": "UPS EAST SERVICE ROAD"
+    },
+    {
+      "Branch Code": "536",
+      "Branch Name": "PACO"
+    },
+    {
+      "Branch Code": "537",
+      "Branch Name": "REGALADO AVENUE"
+    },
+    {
+      "Branch Code": "538",
+      "Branch Name": "EDSA BALINTAWAK"
+    },
+    {
+      "Branch Code": "539",
+      "Branch Name": "MINDANAO AVENUE"
+    },
+    {
+      "Branch Code": "540",
+      "Branch Name": "HEXAGON WEST TRIANGLE"
+    },
+    {
+      "Branch Code": "541",
+      "Branch Name": "KALAYAAN"
+    },
+    {
+      "Branch Code": "542",
+      "Branch Name": "H.V. DELA COSTA BRANCH"
+    },
+    {
+      "Branch Code": "543",
+      "Branch Name": "PASAY EDSA EXTENSION"
+    },
+    {
+      "Branch Code": "544",
+      "Branch Name": "PRITIL"
+    },
+    {
+      "Branch Code": "545",
+      "Branch Name": "MAGINHAWA"
+    },
+    {
+      "Branch Code": "546",
+      "Branch Name": "ASEAN AVE."
+    }
+  ]
+}
