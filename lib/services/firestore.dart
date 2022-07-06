@@ -5,11 +5,16 @@ import 'package:sdbapp/services/auth.dart';
 class FirestoreService {
   static Future<void> sendToFirestore(Lease lease) async {
     var now = DateTime.now();
-    var datetimenow =
-        "${now.month}-${now.day}-${now.year} ${now.hour}:${now.minute}:${now.second}";
+    var month = now.month.toString().padLeft(2, '0');
+    var day = now.day.toString().padLeft(2, '0');
+    var year = now.year.toString().padLeft(2, '0');
+    var hour = now.hour.toString().padLeft(2, '0');
+    var min = now.minute.toString().padLeft(2, '0');
+    var second = now.second.toString().padLeft(2, '0');
+    var datetimenow = "$month-$day-$year $hour:$min:$second";
     var ref = FirebaseFirestore.instance
         .collection('leases')
-        .doc("${lease.lessee1} $datetimenow");
+        .doc("$datetimenow ${lease.lessee1}");
 
     var data = {
       'branch': lease.branch,

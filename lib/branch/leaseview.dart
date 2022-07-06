@@ -5,8 +5,11 @@ class LeaseViewScreeen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final leasedetails =
+        ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
     return Scaffold(
-      body: Center(child: Text('APPLICATION DETAILS')),
-    );
+        body: Center(
+      child: Text('$leasedetails\n'),
+    ));
   }
 }
