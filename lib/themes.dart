@@ -81,16 +81,14 @@ var appTheme = ThemeData(
   ),
   inputDecorationTheme: InputDecorationTheme(
     border: OutlineInputBorder(
-      borderSide: BorderSide(
+      borderSide: const BorderSide(
         width: 0,
         style: BorderStyle.none,
       ),
       borderRadius: BorderRadius.circular(5.0),
     ),
-    contentPadding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
+    contentPadding: const EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 10.0),
     isDense: true,
-    fillColor: Color(0xffeae0d6),
+    fillColor: const Color(0xffeae0d6),
   ),
 );
-
-var temptheme = ThemeData();

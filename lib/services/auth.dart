@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class AuthService {
@@ -12,4 +11,12 @@ class AuthService {
       // handle error
     }
   }
+}
+
+class User {
+  String username;
+  String password;
+  String type;
+
+  User(this.username, this.password, this.type);
 }

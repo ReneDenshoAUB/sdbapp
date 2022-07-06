@@ -1,11 +1,20 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:sdbapp/form/leasescreen4.dart';
 import 'package:sdbapp/services/auth.dart';
-import '../form/leasescreen3.dart';
 
 class FirestoreService {
   static Future<void> sendToFirestore(Lease lease) async {
-    var user = AuthService().user!;
-    var ref = FirebaseFirestore.instance.collection('leases').doc(user.uid);
+    var now = DateTime.now();
+    var month = now.month.toString().padLeft(2, '0');
+    var day = now.day.toString().padLeft(2, '0');
+    var year = now.year.toString().padLeft(2, '0');
+    var hour = now.hour.toString().padLeft(2, '0');
+    var min = now.minute.toString().padLeft(2, '0');
+    var second = now.second.toString().padLeft(2, '0');
+    var datetimenow = "$month-$day-$year $hour:$min:$second";
+    var ref = FirebaseFirestore.instance
+        .collection('leases')
+        .doc("$datetimenow ${lease.lessee1}");
 
     var data = {
       'branch': lease.branch,
@@ -23,8 +32,18 @@ class FirestoreService {
       'contact2': lease.contact2,
       'sigurl1': lease.sigurl1,
       'sigurl2': lease.sigurl2 ?? '',
+      'datetime': datetimenow,
+      'status': 'submitted',
     };
 
-    return ref.set(data, SetOptions(merge: false));
+    return ref.set(data, SetOptions(merge: true));
+  }
+
+  static Future<List<Map<String, dynamic>>> readFirestore(
+      String collection) async {
+    var ref = FirebaseFirestore.instance.collection(collection);
+    var snapshot = await ref.get();
+    var data = snapshot.docs.map((e) => e.data());
+    return data.toList();
   }
 }
