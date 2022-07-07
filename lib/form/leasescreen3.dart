@@ -34,8 +34,8 @@ class LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
     double deviceHeight = MediaQuery.of(context).size.height;
-    controller1.penStrokeWidth = deviceWidth * 0.012;
-    controller2.penStrokeWidth = deviceWidth * 0.012;
+    //controller1.penStrokeWidth = deviceWidth * 0.012;
+    //controller2.penStrokeWidth = deviceWidth * 0.012;
     return Scaffold(
       appBar: AppBar(
         title: Text('LESSEE SIGNATURE',
@@ -168,8 +168,7 @@ class LesseeSignatureScreenState extends State<LesseeSignatureScreen> {
                 SizedBox(
                   height: 150,
                   child: Stack(children: [
-                    Center(child: Image.memory(signature1!)),
-                    Center(child: Image.asset('assets/images/sigholder1.png')),
+                    Center(child: Image.memory(signature1!)      Center(child: Image.asset('assets/images/sigholder1.png')),
                   ]),
                 ),*/
               if (hasLessee2 == true)
