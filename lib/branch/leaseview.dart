@@ -20,6 +20,7 @@ class LeaseViewScreeen extends StatelessWidget {
     print('yooo $leasedetails');
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('APPLICATION DETAILS'),
       ),
@@ -358,9 +359,11 @@ class LeaseViewScreeen extends StatelessWidget {
 
                       Navigator.pushNamed(context, '/listview');
                     },
-                    child: Text((LoginScreenState.currentType == 'approver')
-                        ? 'Approve'
-                        : 'Endorse'),
+                    child: Text(
+                        (LoginScreenState.currentType == 'approver')
+                            ? 'Approve'
+                            : 'Endorse',
+                        style: TextStyle(fontSize: 12)),
                   ),
                 ),
                 SizedBox(
@@ -385,10 +388,8 @@ class LeaseViewScreeen extends StatelessWidget {
                             MaterialStateProperty.all(Colors.white)),
                     child: Text(
                       'Reject',
-                      style: Theme.of(context)
-                          .textTheme
-                          .button
-                          ?.copyWith(color: const Color(0xffc93033)),
+                      style: Theme.of(context).textTheme.button?.copyWith(
+                          color: const Color(0xffc93033), fontSize: 12),
                     ),
                   ),
                 ),

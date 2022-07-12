@@ -88,6 +88,7 @@ class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text('SDB LEASE DETAILS'),
       ),
@@ -205,7 +206,10 @@ class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           Text('Next'),
-                          Icon(Icons.arrow_circle_right, size: MediaQuery.of(context).size.height * 0.02,)
+                          Icon(
+                            Icons.arrow_circle_right,
+                            size: MediaQuery.of(context).size.height * 0.02,
+                          )
                         ],
                       ),
                       onPressed: () {
