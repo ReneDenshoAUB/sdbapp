@@ -230,6 +230,7 @@ class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
     }
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('SDB LEASE DETAILS'),
       ),

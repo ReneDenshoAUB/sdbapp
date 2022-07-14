@@ -7,6 +7,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double deviceHeight = MediaQuery.of(context).size.height;
+    double deviceWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -16,11 +17,36 @@ class HomeScreen extends StatelessWidget {
           children: <Widget>[
             Align(
               alignment: Alignment.topRight,
-              child: ElevatedButton(
-                child: Text('Sign in'),
-                onPressed: () {
-                  Navigator.pushNamed(context, '/login');
-                },
+              child: Padding(
+                padding: EdgeInsets.only(right: deviceWidth * 0.03649635),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsets.only(bottom: deviceWidth * 0.00729927),
+                      child: Text(
+                        "For employees:",
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6
+                            ?.copyWith(fontSize: deviceWidth * 0.0316301703),
+                      ),
+                    ),
+                    SizedBox(
+                      width: deviceWidth * 0.1993187347,
+                      height: deviceHeight * 0.03660322,
+                      child: ElevatedButton(
+                        child: Text(
+                          'Sign in',
+                          style: TextStyle(fontSize: deviceHeight * 0.02),
+                        ),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/login');
+                        },
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Image.asset(
@@ -96,10 +122,13 @@ class HomeScreen extends StatelessWidget {
                     style: Theme.of(context)
                         .textTheme
                         .button
-                        ?.copyWith(fontSize: deviceHeight * 0.0439),
+                        ?.copyWith(fontSize: deviceHeight * 0.0429),
                   ),
                 ),
               ),
+            ),
+            SizedBox(
+              height: 20.0,
             ),
           ],
         ),

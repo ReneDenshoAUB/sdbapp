@@ -2,8 +2,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:sdbapp/branch/login.dart';
 
-class LeaseViewScreeen extends StatelessWidget {
+class LeaseViewScreeen extends StatefulWidget {
   const LeaseViewScreeen({Key? key}) : super(key: key);
+
+  @override
+  State<LeaseViewScreeen> createState() => _LeaseViewScreeenState();
+}
+
+class _LeaseViewScreeenState extends State<LeaseViewScreeen> {
+  bool actiondone = false;
 
   @override
   Widget build(BuildContext context) {
@@ -20,6 +27,7 @@ class LeaseViewScreeen extends StatelessWidget {
     print('yooo $leasedetails');
 
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text('APPLICATION DETAILS'),
       ),
@@ -337,63 +345,68 @@ class LeaseViewScreeen extends StatelessWidget {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.075,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.075,
-                  width: MediaQuery.of(context).size.width * 0.2,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      final docUser = FirebaseFirestore.instance
-                          .collection('leases')
-                          .doc(
-                              '${leasedetails['datetime']} ${leasedetails['lessee1']}');
+            if ((leasedetails['status'] == 'submitted' &&
+                    LoginScreenState.currentType == 'verifier') ||
+                (leasedetails['status'] == 'endorsed' &&
+                    LoginScreenState.currentType == 'approver'))
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.075,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        final docUser = FirebaseFirestore.instance
+                            .collection('leases')
+                            .doc(
+                                '${leasedetails['datetime']} ${leasedetails['lessee1']}');
 
-                      docUser.update({
-                        'status': (LoginScreenState.currentType == 'approver')
-                            ? 'approved'
-                            : 'endorsed'
-                      });
+                        docUser.update({
+                          'status': (LoginScreenState.currentType == 'approver')
+                              ? 'approved'
+                              : 'endorsed'
+                        });
 
-                      Navigator.pushNamed(context, '/listview');
-                    },
-                    child: Text((LoginScreenState.currentType == 'approver')
-                        ? 'Approve'
-                        : 'Endorse'),
-                  ),
-                ),
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.075,
-                  width: MediaQuery.of(context).size.width * 0.2,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      final docUser = FirebaseFirestore.instance
-                          .collection('leases')
-                          .doc(
-                              '${leasedetails['datetime']} ${leasedetails['lessee1']}');
-
-                      docUser.delete();
-                      Navigator.pushNamed(context, '/listview');
-                    },
-                    style: ButtonStyle(
-                        overlayColor:
-                            MaterialStateProperty.all<Color>(Colors.black12),
-                        side: MaterialStateProperty.all(const BorderSide(
-                            width: 4.0, color: Color(0xffc93033))),
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.white)),
-                    child: Text(
-                      'Reject',
-                      style: Theme.of(context)
-                          .textTheme
-                          .button
-                          ?.copyWith(color: const Color(0xffc93033)),
+                        Navigator.pushNamedAndRemoveUntil(
+                            context, '/listview', (route) => false);
+                      },
+                      child: Text(
+                          (LoginScreenState.currentType == 'approver')
+                              ? 'Approve'
+                              : 'Endorse',
+                          style: TextStyle(fontSize: 12)),
                     ),
                   ),
-                ),
-              ],
-            )
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.075,
+                    width: MediaQuery.of(context).size.width * 0.2,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        final docUser = FirebaseFirestore.instance
+                            .collection('leases')
+                            .doc(
+                                '${leasedetails['datetime']} ${leasedetails['lessee1']}');
+
+                        docUser.delete();
+                        Navigator.pushNamed(context, '/listview');
+                      },
+                      style: ButtonStyle(
+                          overlayColor:
+                              MaterialStateProperty.all<Color>(Colors.black12),
+                          side: MaterialStateProperty.all(const BorderSide(
+                              width: 4.0, color: Color(0xffc93033))),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.white)),
+                      child: Text(
+                        'Reject',
+                        style: Theme.of(context).textTheme.button?.copyWith(
+                            color: const Color(0xffc93033), fontSize: 12),
+                      ),
+                    ),
+                  ),
+                ],
+              )
           ],
         ),
       ),
