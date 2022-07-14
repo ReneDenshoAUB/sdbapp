@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:sdbapp/form/leasescreen4.dart';
-import 'package:sdbapp/services/auth.dart';
 
 class FirestoreService {
   static Future<void> sendToFirestore(Lease lease) async {
@@ -33,8 +32,12 @@ class FirestoreService {
       'sigurl1': lease.sigurl1,
       'sigurl2': lease.sigurl2 ?? '',
       'datetime': datetimenow,
+      'debitto': lease.debit,
       'status': 'submitted',
     };
+
+    var branches = FirebaseFirestore.instance.collection('branches');
+    branches.doc(lease.branch.substring(6)).update({'SDBs.${lease.sdbnumber}': 'unavailable'});
 
     return ref.set(data, SetOptions(merge: true));
   }

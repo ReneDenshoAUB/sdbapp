@@ -14,23 +14,24 @@ class LeaseReviewScreen extends StatefulWidget {
 }
 
 class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
-  String branch = LeaseDetailsScreenState.selectedBranch.value;
-  String sdbnumber = '38';
-  String size = LeaseDetailsScreenState.selectedSize.value;
-  String annualfee = LeaseDetailsScreenState.selectedPrice;
+  String branch = LeaseDetailsScreenState.selectedBranch;
+  String sdbnumber = LeaseDetailsScreenState.sdbNumber;
+  String size = LeaseDetailsScreenState.selectedSize;
+  String annualfee = LeaseDetailsScreenState.annualFee;
   String depositfee = 'PHP 1,000.00';
-  String dateleased = LeaseDetailsScreenState.dateleased;
-  String expirydate = LeaseDetailsScreenState.expirydate;
+  String dateleased = LeaseDetailsScreenState.leaseDate;
+  String expirydate = LeaseDetailsScreenState.expiryDate;
   String lessee1 =
       '${LesseeDetailsScreenState.fName1} ${LesseeDetailsScreenState.mName1} ${LesseeDetailsScreenState.lName1}';
   String address1 =
-      '${LesseeDetailsScreenState.house1} ${LesseeDetailsScreenState.barangay1.value} ${LesseeDetailsScreenState.city1.value} ${LesseeDetailsScreenState.province1.value}';
+      '${LesseeDetailsScreenState.house1} ${LesseeDetailsScreenState.barangay1} ${LesseeDetailsScreenState.city1} ${LesseeDetailsScreenState.province1} ${LesseeDetailsScreenState.zipcode1}';
   String contact1 = LesseeDetailsScreenState.contact1;
   String lessee2 =
       '${LesseeDetailsScreenState.fName2} ${LesseeDetailsScreenState.mName2} ${LesseeDetailsScreenState.lName2}';
   String address2 =
-      '${LesseeDetailsScreenState.house2} ${LesseeDetailsScreenState.barangay2.value} ${LesseeDetailsScreenState.city2.value} ${LesseeDetailsScreenState.province2.value}';
+      '${LesseeDetailsScreenState.house2} ${LesseeDetailsScreenState.barangay2} ${LesseeDetailsScreenState.city2} ${LesseeDetailsScreenState.province2} ${LesseeDetailsScreenState.zipcode2}';
   String contact2 = LesseeDetailsScreenState.contact2;
+  String debit = LesseeDetailsScreenState.debit;
   String? sigurl1;
   String? sigurl2;
 
@@ -52,6 +53,8 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
       lessee1: lessee1,
       address1: address1,
       contact1: contact1,
+      debit: debit,
+      
     );
     if (hasLessee2 == true) {
       lease.lessee2 = lessee2;
@@ -333,6 +336,21 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                             .bodyText1
                             ?.copyWith(fontSize: deviceHeight * 0.02049),
                       ),
+                      SizedBox(height: deviceHeight * 0.015),
+                      Text(
+                        'Account to debit',
+                        style: Theme.of(context)
+                            .textTheme
+                            .headline6
+                            ?.copyWith(fontSize: deviceHeight * 0.0366),
+                      ),
+                      Text(
+                        debit,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyText1
+                            ?.copyWith(fontSize: deviceHeight * 0.02049),
+                      ),
                     ],
                   ),
                 ),
@@ -537,6 +555,7 @@ class Lease {
   final String lessee1;
   final String address1;
   final String contact1;
+  final String debit;
   String lessee2;
   String address2;
   String contact2;
@@ -559,5 +578,6 @@ class Lease {
     this.lessee2 = '',
     this.address2 = '',
     this.contact2 = '',
+    this.debit = '',
   });
 }

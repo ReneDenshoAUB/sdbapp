@@ -1,8 +1,10 @@
 // ignore_for_file: sized_box_for_whitespace
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'formandlabel.dart';
-import 'fieldattributes.dart';
+import 'package:flutter/services.dart';
+import 'package:sdbapp/form/fieldandlabel.dart';
+import 'dart:convert';
 
 class LeaseDetailsScreen extends StatefulWidget {
   const LeaseDetailsScreen({Key? key}) : super(key: key);
@@ -12,33 +14,131 @@ class LeaseDetailsScreen extends StatefulWidget {
 }
 
 class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
-  //final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  static ValueNotifier<String> selectedSize = ValueNotifier<String>('');
-  ValueNotifier<String> sizeError = ValueNotifier<String>('');
-  static ValueNotifier<String> selectedBranch = ValueNotifier<String>('');
-  static ValueNotifier<String> branchError = ValueNotifier<String>('');
-  static String selectedPrice = '';
-  static String dateleased = '';
-  static String expirydate = '';
-  List<String> sizes = ['5x5', '5x10', '10x10'];
-  List<String> allBranches = [
-    'Branch 1',
-    'Branch 13',
-    'Branch 2',
-    'Branch 4',
-    'Branch 5',
-    'Branch 553'
-  ];
-  List<String> branchArray = [
-    'Branch 1',
-    'Branch 13',
-    'Branch 2',
-    'Branch 4',
-    'Branch 5',
-    'Branch 553'
-  ];
+  static Size screenSize = WidgetsBinding.instance.window.physicalSize;
+  double screenWidth = screenSize.width;
+  double screenHeight = screenSize.height;
+  TextEditingController branchController = TextEditingController();
 
-  String formattedDateTime() {
+  static String selectedBranch = '';
+  static String selectedSize = '';
+  static String annualFee = '';
+  static String leaseDate = '';
+  static String expiryDate = '';
+  static String sdbNumber = '';
+  Map<String, dynamic>? selectedBranchData;
+
+  String? branchError;
+  String? sdbNumberError;
+  String? sizeError;
+
+  List allBranchesUnparsed = [];
+  List allBranches = [];
+  List visibleBranches = [];
+
+  bool branchDropdownOpened = false;
+  bool sizeDropdownOpened = false;
+
+  bool firstBuild = true;
+
+  @override
+  void initState() {
+    super.initState();
+    branchController.addListener(() {
+      setState(() {
+        visibleBranches = allBranches
+            .where((x) => x.contains(branchController.text.toUpperCase()))
+            .toList();
+        selectedBranch = branchController.text;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    branchController.dispose();
+    super.dispose();
+  }
+
+  resetSize(String text) {
+    setState(() {
+      if (allBranches.contains(text)) {
+        branchError = null;
+      }
+      selectedSize = '';
+      sdbNumber = '';
+      sdbNumberError = null;
+      sizeError = null;
+    });
+  }
+
+  toggleVisibility(String valueToChange, String pressedFrom) {
+    setState(() {
+      if (valueToChange == 'branch') {
+        if ((pressedFrom == 'textfield' && branchDropdownOpened == false) ||
+            pressedFrom != 'textfield') {
+          branchDropdownOpened = !branchDropdownOpened;
+        }
+      } else if (valueToChange == 'size') {
+        sizeDropdownOpened = !sizeDropdownOpened;
+      }
+    });
+  }
+
+  chooseSDBNumber(String sdbSize) {
+    sdbNumber = '';
+    int start = 0;
+    int end = 0;
+
+    if (sdbSize == '5x5') {
+      start = 1;
+      end = 5;
+    } else if (sdbSize == '5x10') {
+      start = 6;
+      end = 10;
+    } else {
+      start = 11;
+      end = 15;
+    }
+
+    for (int i = start; i <= end; i++) {
+      if (selectedBranchData![i.toString()] == 'available') {
+        setState(() {
+          sdbNumber = i.toString();
+          sdbNumberError = null;
+          sizeError = null;
+        });
+        return;
+      }
+    }
+    if (sdbNumber == '') {
+      setState(() {
+        sdbNumber = 'No more SDBs left. Please choose another size';
+        sdbNumberError = '';
+        sizeError = 'Please choose another size';
+      });
+    }
+  }
+
+  updateSelected(String valueToChange, String newValue) {
+    setState(() {
+      if (valueToChange == 'branch') {
+        branchController.text = newValue;
+        selectedBranch = newValue;
+      } else if (valueToChange == 'size') {
+        selectedSize = newValue;
+        if (selectedSize == '5x5') {
+          annualFee = 'PHP 880.00';
+        } else if (selectedSize == '5x10') {
+          annualFee = 'PHP 1,650.00';
+        } else {
+          annualFee = 'PHP 2,250.00';
+        }
+        chooseSDBNumber(selectedSize);
+      }
+    });
+  }
+
+  formattedDateTime() {
     var months = [
       "January",
       "February",
@@ -55,183 +155,198 @@ class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
     ];
 
     DateTime now = DateTime.now();
-    dateleased = "${months[now.month - 1]} ${now.day}, ${now.year}";
-    return dateleased;
-  }
+    leaseDate = "${months[now.month - 1]} ${now.day}, ${now.year}";
 
-  String nextJanuary() {
-    DateTime now = DateTime.now();
-    String nextJan = '';
-
+    //find next January
     if (now.month == 1 && now.day < 15) {
-      nextJan = "January 15, ${now.year}";
+      expiryDate = 'January 15, ${now.year}';
     } else {
-      nextJan = "January 15, ${now.year + 1}";
+      expiryDate = 'January 15, ${now.year + 1}';
     }
-    expirydate = nextJan;
-    return nextJan;
   }
 
-  String price(String? selectedSize) {
-    String price = '';
-    if (selectedSize == '5x5') {
-      price = 'PHP 800.00';
-    } else if (selectedSize == '5x10') {
-      price = 'PHP 1650.00';
-    } else if (selectedSize == '10x10') {
-      price = 'PHP 2200.00';
+  bool formValidation() {
+    bool clearToGo = true;
+    setState(() {
+      if (!allBranches.contains(selectedBranch)) {
+        branchError = 'Please put in a valid branch';
+        clearToGo = false;
+      } else {
+        branchError = null;
+      }
+
+      if (sdbNumber == '' && allBranches.contains(selectedBranch)) {
+        sizeError = 'Please choose a size';
+        sdbNumberError = '';
+        clearToGo = false;
+      } else if (sdbNumber == 'No more SDBs left. Please choose another size') {
+        sizeError = 'Please choose another size';
+        sdbNumberError = '';
+        clearToGo = false;
+      } else {
+        sizeError = null;
+        sdbNumberError = null;
+      }
+    });
+
+    return clearToGo;
+  }
+
+  Future<void> readJson() async {
+    final String branchResponse =
+        await rootBundle.loadString('assets/json/branches.json');
+    final branchData = await json.decode(branchResponse);
+
+    allBranchesUnparsed = branchData['branches'];
+    allBranches = allBranchesUnparsed
+        .map((x) => '${x['Branch Code']} - ${x['Branch Name']}')
+        .toList();
+    visibleBranches = allBranchesUnparsed
+        .map((x) => '${x['Branch Code']} - ${x['Branch Name']}')
+        .toList();
+
+    firstBuild = false;
+  }
+
+  readFromFirestore(String branch) async {
+    var collection = await (FirebaseFirestore.instance.collection('branches'))
+        .doc(branch)
+        .get();
+    selectedBranchData = collection.data();
+
+    if (selectedBranchData != null) {
+      selectedBranchData = selectedBranchData!['SDBs'];
     }
-    selectedPrice = price;
-    return price;
   }
 
   @override
   Widget build(BuildContext context) {
+    if (firstBuild) {
+      readJson();
+      formattedDateTime();
+      selectedBranch = '';
+      sdbNumber = '';
+      selectedSize = '';
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('SDB LEASE DETAILS'),
+        title: const Text('SDB LEASE DETAILS'),
       ),
       body: GestureDetector(
         onTap: () {
-          FocusManager.instance.primaryFocus?.unfocus();
+          FocusScope.of(context).unfocus();
         },
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.all(MediaQuery.of(context).size.width * 0.03),
+            padding: EdgeInsets.all(screenWidth * 0.03),
             child: Column(
               children: [
-                ValueListenableBuilder(
-                    valueListenable: branchError,
-                    builder: (context, String errorBranch, child) {
-                      return ValueListenableBuilder(
-                          valueListenable: selectedBranch,
-                          builder: (context, String branch, child) {
-                            return FormAndLabel(
-                              fieldAttributes: [
-                                FieldAttributes(
-                                  labelText: 'Branch',
-                                  fieldText: branch,
-                                  errorText: errorBranch,
-                                  formType: 'Dropdown',
-                                  //controller: branchController,
-                                  tappable: true,
-                                  tapped: false,
-                                  selected: selectedBranch,
-                                  dropdownArray: allBranches,
-                                ),
-                              ],
-                            );
-                          });
-                    }),
-                ValueListenableBuilder(
-                    valueListenable: sizeError,
-                    builder: (context, String errorSize, child) {
-                      return ValueListenableBuilder(
-                          valueListenable: selectedSize,
-                          builder: (context, String size, child) {
-                            return FormAndLabel(
-                              fieldAttributes: [
-                                FieldAttributes(
-                                  labelText: 'SDB Number',
-                                  supplementalText:
-                                      '(Automatically chosen for you)',
-                                  formType: 'Disabled',
-                                  tappable: false,
-                                ),
-                                FieldAttributes(
-                                  labelText: 'Size',
-                                  fieldText: size,
-                                  errorText: errorSize,
-                                  formType: 'Dropdown',
-                                  tappable: true,
-                                  tapped: false,
-                                  selected: selectedSize,
-                                  dropdownArray: sizes,
-                                ),
-                              ],
-                            );
-                          });
-                    }),
-                ValueListenableBuilder(
-                    valueListenable: selectedSize,
-                    builder: (context, String size, child) {
-                      return FormAndLabel(
-                        fieldAttributes: [
-                          FieldAttributes(
-                              labelText: 'Annual Fee',
-                              formType: 'Disabled',
-                              fieldText: price(selectedSize.value),
-                              tappable: false),
-                          FieldAttributes(
-                              labelText: 'Deposit for Keys',
-                              fieldText: 'PHP 1000.00',
-                              formType: 'Disabled',
-                              tappable: false),
-                        ],
-                      );
-                    }),
-                FormAndLabel(
-                  fieldAttributes: [
-                    FieldAttributes(
-                        labelText: 'Date Leased',
-                        supplementalText: '(Date Today)',
-                        fieldText: formattedDateTime(),
-                        formType: 'Disabled',
-                        tappable: false),
-                    FieldAttributes(
-                        labelText: 'Expiry Date',
-                        supplementalText: '(On The Following January 15)',
-                        fieldText: nextJanuary(),
-                        formType: 'Disabled',
-                        tappable: false),
+                FieldAndLabel(
+                    parent: this,
+                    fieldType: 'DropdownSearch',
+                    title: 'Branch',
+                    errorText: branchError,
+                    hintText: 'Enter Branch',
+                    opened: branchDropdownOpened,
+                    textController: branchController,
+                    dropdownList: visibleBranches,
+                    valueToChange: 'branch'),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: FieldAndLabel(
+                          parent: this,
+                          fieldType: 'Disabled',
+                          title: 'SDB Number',
+                          subtitle: '(Automatically chosen for you)',
+                          errorText: sdbNumberError,
+                          fieldText: sdbNumber,
+                          valueToChange: 'sdbNumber'),
+                    ),
+                    SizedBox(
+                      width: screenWidth * 0.03,
+                    ),
+                    Expanded(
+                      child: FieldAndLabel(
+                        parent: this,
+                        fieldType: (allBranches.contains(selectedBranch))
+                            ? 'Dropdown'
+                            : 'Disabled',
+                        title: 'Size',
+                        subtitle: '',
+                        errorText: sizeError,
+                        fieldText: selectedSize,
+                        opened: sizeDropdownOpened,
+                        dropdownList: const ['5x5', '5x10', '10x10'],
+                        valueToChange: 'size',
+                      ),
+                    )
                   ],
                 ),
-
-                Text(
-                  'We\'ll need your personal information too',
-                  style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                      fontSize: MediaQuery.of(context).size.height * 0.02),
+                SizedBox(
+                  height: screenHeight * 0.02,
+                ),
+                Row(
+                  children: [
+                    Expanded(
+                      child: FieldAndLabel(
+                          parent: this,
+                          fieldType: 'Disabled',
+                          title: 'Annual Fee',
+                          fieldText: annualFee),
+                    ),
+                    SizedBox(
+                      width: screenWidth * 0.03,
+                    ),
+                    Expanded(
+                      child: FieldAndLabel(
+                          parent: this,
+                          fieldType: 'Disabled',
+                          title: 'Deposit For Keys',
+                          fieldText: 'PHP 1000.00'),
+                    ),
+                  ],
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.007,
+                  height: screenHeight * 0.02,
                 ),
-                //Button
-                Center(
-                  child: Container(
-                    width: MediaQuery.of(context).size.width * 0.3,
-                    height: MediaQuery.of(context).size.height * 0.05,
-                    child: ElevatedButton(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Text('Next'),
-                          Icon(Icons.arrow_circle_right, size: MediaQuery.of(context).size.height * 0.02,)
-                        ],
-                      ),
-                      onPressed: () {
-                        bool hasError = false;
-                        if (selectedBranch.value == '') {
-                          branchError.value =
-                              'Please fill out this field properly';
-                          hasError = true;
-                        } else {
-                          branchError.value = '';
-                        }
-                        if (selectedSize.value == '') {
-                          sizeError.value =
-                              'Please fill out this field properly';
-                          hasError = true;
-                        } else {
-                          sizeError.value = '';
-                        }
-
-                        if (!hasError) {
-                          Navigator.pushNamed(context, '/leasescreen2');
-                        }
-                      },
+                Row(
+                  children: [
+                    Expanded(
+                      child: FieldAndLabel(
+                          parent: this,
+                          fieldType: 'Disabled',
+                          title: 'Date Leased',
+                          subtitle: '(Date today)',
+                          fieldText: leaseDate),
                     ),
-                  ),
+                    SizedBox(
+                      width: screenWidth * 0.03,
+                    ),
+                    Expanded(
+                      child: FieldAndLabel(
+                          parent: this,
+                          fieldType: 'Disabled',
+                          title: 'Expiry Date',
+                          subtitle: '(The following January 15)',
+                          fieldText: expiryDate),
+                    ),
+                  ],
                 ),
+                ElevatedButton(
+                    onPressed: () {
+                      bool clearToGo = formValidation();
+
+                      if (clearToGo) {
+                        Navigator.pushNamed(context, '/leasescreen2');
+                      }
+                    },
+                    child: const Text('press mee'))
               ],
             ),
           ),
