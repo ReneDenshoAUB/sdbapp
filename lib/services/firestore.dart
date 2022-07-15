@@ -36,8 +36,10 @@ class FirestoreService {
       'status': 'submitted',
     };
 
-    var branches = FirebaseFirestore.instance.collection('branches');
-    branches.doc(lease.branch.substring(6)).update({'SDBs.${lease.sdbnumber}': 'unavailable'});
+    //WAG MUNA ILAGAY TO KASI NAKAKARAMI NA TO NG READ LOL
+
+    
+    await (FirebaseFirestore.instance.collection('branches')).doc(lease.branch.substring(6)).update({'SDBs.${lease.sdbnumber}': 'unavailable'});
 
     return ref.set(data, SetOptions(merge: true));
   }
