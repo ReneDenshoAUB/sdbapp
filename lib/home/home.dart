@@ -38,7 +38,7 @@ class HomeScreen extends StatelessWidget {
                       child: ElevatedButton(
                         child: Text(
                           'Sign in',
-                          style: TextStyle(fontSize: deviceHeight * 0.02),
+                          style: TextStyle(fontSize: deviceHeight * 0.0184),
                         ),
                         onPressed: () {
                           Navigator.pushNamed(context, '/login');

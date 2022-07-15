@@ -246,21 +246,23 @@ class _ListViewScreenState extends State<ListViewScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      showViews[i][0],
-                                      style:
-                                          Theme.of(context).textTheme.headline6,
-                                    ),
-                                    Row(
-                                      children: [
-                                        Text("${showViews[i][1]} "),
-                                        Text(showViews[i][2]),
-                                      ],
-                                    ),
-                                  ],
+                                Flexible(
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        showViews[i][0],
+                                        style:
+                                            Theme.of(context).textTheme.headline6,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Text("${showViews[i][1]} "),
+                                          Text(showViews[i][2]),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
                                 if (currentType == "verifier")
                                   SizedBox(

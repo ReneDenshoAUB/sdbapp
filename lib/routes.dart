@@ -1,6 +1,7 @@
 import 'package:sdbapp/branch/leaseview.dart';
 import 'package:sdbapp/branch/listview.dart';
 import 'package:sdbapp/branch/login.dart';
+import 'package:sdbapp/branch/branchsuccessscreen.dart';
 import 'package:sdbapp/form/leasescreen1.dart';
 import 'package:sdbapp/form/leasescreen2.dart';
 import 'package:sdbapp/form/leasescreen3.dart';
@@ -18,4 +19,5 @@ var appRoute = {
   '/login': (context) => const LoginScreen(),
   '/listview': (context) => const ListViewScreen(),
   '/leaseview': (context) => const LeaseViewScreeen(),
+  '/branchsuccessscreen': (context) => const BranchSuccess(),
 };

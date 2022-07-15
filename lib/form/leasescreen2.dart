@@ -13,7 +13,7 @@ class LesseeDetailsScreen extends StatefulWidget {
 class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
   static Size screenSize = WidgetsBinding.instance.window.physicalSize;
   double screenWidth = screenSize.width;
-  double screenHeight = screenSize.height;
+  double screenHeight = screenSize.height * 0.7;
 
   static String fName1 = '';
   static String mName1 = '';
@@ -50,7 +50,8 @@ class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
     'I',
     'II',
     'III',
-    'IV',
+    'IVA',
+    'IVB',
     'V',
     'VI',
     'VII',

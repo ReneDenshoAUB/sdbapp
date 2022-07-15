@@ -16,7 +16,7 @@ class LeaseDetailsScreen extends StatefulWidget {
 class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
   static Size screenSize = WidgetsBinding.instance.window.physicalSize;
   double screenWidth = screenSize.width;
-  double screenHeight = screenSize.height;
+  double screenHeight = screenSize.height * 0.7;
   TextEditingController branchController = TextEditingController();
 
   static String selectedBranch = '';
