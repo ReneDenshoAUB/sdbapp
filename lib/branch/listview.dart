@@ -258,7 +258,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
                                       Row(
                                         children: [
                                           Text("${showViews[i][1]} "),
-                                          Text(showViews[i][2]),
+                                          Flexible(child: Text(showViews[i][2], overflow: TextOverflow.ellipsis,)),
                                         ],
                                       ),
                                     ],

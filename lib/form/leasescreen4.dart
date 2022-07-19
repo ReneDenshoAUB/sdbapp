@@ -499,7 +499,6 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
             ),
             SizedBox(
               height: deviceHeight * 0.06569,
-              width: deviceWidth * 0.3406,
               child: ElevatedButton(
                 style: Theme.of(context).elevatedButtonTheme.style?.copyWith(
                         shape:
@@ -510,6 +509,7 @@ class _LeaseReviewScreenState extends State<LeaseReviewScreen> {
                     ))),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(
                       "Submit ",

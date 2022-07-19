@@ -34,6 +34,7 @@ class _BranchSuccessState extends State<BranchSuccess> {
     String action = ModalRoute.of(context)!.settings.arguments as String;
 
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

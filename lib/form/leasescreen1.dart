@@ -339,6 +339,15 @@ class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
                     ),
                   ],
                 ),
+
+                Container(
+                  height: screenHeight * 0.075,
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    'We\'ll need your personal information too',
+                    style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: screenHeight * 0.01),
+                  ),
+                ),
                 ElevatedButton(
                     onPressed: () {
                       bool clearToGo = formValidation();
@@ -347,7 +356,16 @@ class LeaseDetailsScreenState extends State<LeaseDetailsScreen> {
                         Navigator.pushNamed(context, '/leasescreen2');
                       }
                     },
-                    child: const Text('press mee'))
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Text('Next'),
+                          Icon(Icons.arrow_circle_right)
+                        ],
+                      ),
+                    ))
               ],
             ),
           ),

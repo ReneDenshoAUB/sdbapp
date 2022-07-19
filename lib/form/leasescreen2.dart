@@ -40,7 +40,7 @@ class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
 
   static String debit = '';
 
-  static bool hasLessee2 = true;
+  static bool hasLessee2 = false;
 
   List allAddresses = [];
   List allRegions = [
@@ -933,6 +933,15 @@ class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
                     errorText: debitError,
                     hintText: '',
                     textController: debitController),
+                    
+                Container(
+                  height: screenHeight * 0.05,
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    'Lastly, your signature',
+                    style: Theme.of(context).textTheme.bodyText1?.copyWith(fontSize: screenHeight * 0.01),
+                  ),
+                ),
                 ElevatedButton(
                     onPressed: () {
                       bool clearToGo = formValidation();
@@ -941,7 +950,16 @@ class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
                         Navigator.pushNamed(context, '/leasescreen3');
                       }
                     },
-                    child: const Text('press mee'))
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Text('Next'),
+                          Icon(Icons.arrow_circle_right)
+                        ],
+                      ),
+                    ))
               ],
             ),
           ),

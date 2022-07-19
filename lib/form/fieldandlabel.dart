@@ -36,7 +36,7 @@ class FieldAndLabel extends StatefulWidget {
 class _FieldAndLabelState extends State<FieldAndLabel> {
   static Size screenSize = WidgetsBinding.instance.window.physicalSize;
   double screenWidth = screenSize.width;
-  double screenHeight = screenSize.height * 0.7;
+  double screenHeight = screenSize.height;
 
   Widget buildField() {
     switch (widget.fieldType) {
