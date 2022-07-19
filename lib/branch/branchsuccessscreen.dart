@@ -10,7 +10,6 @@ class BranchSuccess extends StatefulWidget {
 class _BranchSuccessState extends State<BranchSuccess> {
 
   Text buildMessage (String action) {
-    print('aa $action');
 
     if (action == 'approver') {
       return Text(
@@ -40,7 +39,7 @@ class _BranchSuccessState extends State<BranchSuccess> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image(
-              image: AssetImage('assets/images/aubLogo.png'),
+              image: const AssetImage('assets/images/aubLogo.png'),
               width: MediaQuery.of(context).size.width * 0.8,
             ),
             buildMessage(action),
@@ -49,7 +48,7 @@ class _BranchSuccessState extends State<BranchSuccess> {
                   Navigator.pushNamedAndRemoveUntil(
                       context, '/listview', (route) => false);
                 },
-                child: Text('Back to list')),
+                child: const Text('Back to list')),
           ],
         ),
       ),

@@ -28,7 +28,7 @@ class _AppState extends State<App> {
       builder: (context, snapshot) {
         // Check for errors
         if (snapshot.hasError) {
-          return Text(
+          return const Text(
               'error',
               textDirection: TextDirection.ltr,
           );
@@ -43,7 +43,7 @@ class _AppState extends State<App> {
         }
 
         // Otherwise, show something whilst waiting for initialization to complete
-        return Text(
+        return const Text(
             'loading',
             textDirection: TextDirection.ltr,
         );

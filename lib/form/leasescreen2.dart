@@ -170,7 +170,6 @@ class LesseeDetailsScreenState extends State<LesseeDetailsScreen> {
     debitController.addListener(() {
       setState(() {
         debit = debitController.text;
-        print('boy $debit');
       });
     });
   }

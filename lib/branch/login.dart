@@ -33,11 +33,9 @@ class LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     double deviceHeight = MediaQuery.of(context).size.height;
     double deviceWidth = MediaQuery.of(context).size.width;
-    print(deviceHeight);
     void getUsers() async {
       justonce = true;
       var users = await FirestoreService.readFirestore('users');
-      print(users);
       for (var user in users) {
         usernames.add(user['username'] as String);
         userpass[user['username'] as String] = [
@@ -45,8 +43,6 @@ class LoginScreenState extends State<LoginScreen> {
           user['type'] as String
         ];
       }
-      print(usernames);
-      print(userpass);
     }
 
     if (justonce == false) getUsers();
@@ -204,10 +200,7 @@ class LoginScreenState extends State<LoginScreen> {
               child: ElevatedButton(
                 onPressed: () {
                   var ucheck = usernameController.text;
-                  print(ucheck);
                   var pcheck = passwordController.text;
-                  print(pcheck);
-                  print(usernames);
                   if (usernames.contains(ucheck)) {
                     if (userpass[ucheck]![0] == pcheck) {
                       currentUsername = ucheck;

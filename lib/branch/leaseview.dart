@@ -41,8 +41,6 @@ class _LeaseViewScreeenState extends State<LeaseViewScreeen> {
       hasLessee2 = true;
     }
 
-    print('yooo $leasedetails');
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

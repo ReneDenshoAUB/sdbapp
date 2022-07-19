@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sdbapp/form/leasescreen1.dart';
 
 class FieldAndLabel extends StatefulWidget {
   var parent;

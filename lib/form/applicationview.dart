@@ -355,7 +355,7 @@ class _ApplicationViewState extends State<ApplicationView> {
                   width: MediaQuery.of(context).size.width * 0.2,
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: Text('yeet'),
+                    child: const Text('yeet'),
                   ),
                 ),
                 SizedBox(
@@ -366,8 +366,8 @@ class _ApplicationViewState extends State<ApplicationView> {
                     style: ButtonStyle(
                         overlayColor:
                             MaterialStateProperty.all<Color>(Colors.black12),
-                        side: MaterialStateProperty.all(BorderSide(
-                            width: 4.0, color: const Color(0xffc93033))),
+                        side: MaterialStateProperty.all(const BorderSide(
+                            width: 4.0, color: Color(0xffc93033))),
                         backgroundColor:
                             MaterialStateProperty.all(Colors.white)),
                     child: Text(

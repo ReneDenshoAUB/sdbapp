@@ -35,7 +35,6 @@ class _ListViewScreenState extends State<ListViewScreen> {
       searchList.add(lease['lessee1']);
     }
     setState(() {});
-    print("This is the part = $leaseViews");
   }
 
   @override
@@ -289,7 +288,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
                                                 showViews[i][3] == 'approved')
                                             ? 'View'
                                             : 'Review',
-                                        style: TextStyle(fontSize: 14),
+                                        style: const TextStyle(fontSize: 14),
                                       ),
                                     ),
                                   )
@@ -318,7 +317,7 @@ class _ListViewScreenState extends State<ListViewScreen> {
                                                 showViews[i][3] == 'approved')
                                             ? 'View'
                                             : 'Review',
-                                        style: TextStyle(fontSize: 14),
+                                        style: const TextStyle(fontSize: 14),
                                       ),
                                     ),
                                   ),

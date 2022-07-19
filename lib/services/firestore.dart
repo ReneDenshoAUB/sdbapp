@@ -35,10 +35,6 @@ class FirestoreService {
       'debitto': lease.debit,
       'status': 'submitted',
     };
-
-    //WAG MUNA ILAGAY TO KASI NAKAKARAMI NA TO NG READ LOL
-
-    
     await (FirebaseFirestore.instance.collection('branches')).doc(lease.branch.substring(6)).update({'SDBs.${lease.sdbnumber}': 'unavailable'});
 
     return ref.set(data, SetOptions(merge: true));
